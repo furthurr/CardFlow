@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+
+<html lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-secondary": "#ffffff",
+              "secondary": "#5d5f5f",
+              "surface-variant": "#e3e2e7",
+              "outline-variant": "#dfc0b2",
+              "on-error": "#ffffff",
+              "on-primary-container": "#541f00",
+              "surface-container-highest": "#e3e2e7",
+              "secondary-container": "#dfe0e0",
+              "on-secondary-container": "#616363",
+              "on-tertiary": "#ffffff",
+              "on-primary-fixed": "#341100",
+              "error": "#ba1a1a",
+              "tertiary-fixed": "#cae6ff",
+              "secondary-fixed": "#e2e2e2",
+              "inverse-surface": "#2f3034",
+              "on-tertiary-fixed": "#001e30",
+              "on-primary": "#ffffff",
+              "on-primary-fixed-variant": "#793100",
+              "surface": "#faf9fe",
+              "surface-container-lowest": "#ffffff",
+              "on-secondary-fixed-variant": "#454747",
+              "surface-container": "#eeedf2",
+              "outline": "#8c7265",
+              "tertiary-container": "#00a0e8",
+              "tertiary": "#006493",
+              "surface-container-high": "#e8e7ec",
+              "tertiary-fixed-dim": "#8dcdff",
+              "inverse-on-surface": "#f1f0f5",
+              "primary": "#9f4200",
+              "surface-tint": "#9f4200",
+              "on-background": "#1a1c1f",
+              "inverse-primary": "#ffb692",
+              "surface-dim": "#dad9de",
+              "primary-fixed-dim": "#ffb692",
+              "primary-container": "#f27121",
+              "on-tertiary-fixed-variant": "#004b70",
+              "surface-container-low": "#f4f3f8",
+              "on-secondary-fixed": "#1a1c1c",
+              "primary-fixed": "#ffdbcb",
+              "error-container": "#ffdad6",
+              "surface-bright": "#faf9fe",
+              "on-tertiary-container": "#00334d",
+              "on-surface": "#1a1c1f",
+              "secondary-fixed-dim": "#c6c6c7",
+              "on-surface-variant": "#584237",
+              "on-error-container": "#93000a",
+              "background": "#faf9fe"
+            },
+            fontFamily: {
+              "headline": ["Inter"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .hero-gradient {
+            background: linear-gradient(135deg, hsl(24, 100%, 72%) 0%, hsl(18, 98%, 53%) 100%);
+        }
+    </style>
+</head>
+<body class="bg-surface font-body text-on-surface min-h-screen">
+<nav class="bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl rounded-xl sticky top-4 mx-auto w-[95%] max-w-7xl mt-4 shadow-[0_4px_20px_-2px_rgba(26,28,31,0.06)] dark:shadow-none flex items-center justify-between px-8 py-4 z-50">
+<div class="text-2xl font-black tracking-tighter text-[#f27121]">CardFlow</div>
+<div class="hidden md:flex gap-8 items-center">
+<a class="text-slate-600 dark:text-slate-400 font-medium hover:text-[#9f4200] transition-all duration-300" href="#">Platform</a>
+<a class="text-slate-600 dark:text-slate-400 font-medium hover:text-[#9f4200] transition-all duration-300" href="#">Solutions</a>
+<a class="text-slate-600 dark:text-slate-400 font-medium hover:text-[#9f4200] transition-all duration-300" href="#">Resources</a>
+<a class="text-slate-600 dark:text-slate-400 font-medium hover:text-[#9f4200] transition-all duration-300" href="#">Pricing</a>
+</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-slate-600 hover:bg-slate-50/50 p-2 rounded-full cursor-pointer transition-all duration-300">account_circle</span>
+<span class="material-symbols-outlined text-slate-600 hover:bg-slate-50/50 p-2 rounded-full cursor-pointer transition-all duration-300">logout</span>
+</div>
+</nav>
+<main class="max-w-7xl mx-auto px-8 py-16 flex flex-col items-center">
+<div class="w-full max-w-2xl bg-surface-container-low rounded-xl p-8 md:p-12 shadow-sm">
+<div class="mb-10">
+<h1 class="text-display-lg font-bold text-on-surface tracking-tight leading-tight mb-2">Crear Proyecto</h1>
+<p class="text-body-lg text-secondary">Define los parámetros iniciales para tu nueva curación táctil.</p>
+</div>
+<form class="space-y-8">
+<div class="space-y-2">
+<label class="block text-label-md uppercase tracking-widest text-on-surface-variant font-semibold">Project Name <span class="text-primary">*</span></label>
+<input class="w-full px-4 py-3 bg-surface-container-lowest border-none rounded-xl focus:ring-2 focus:ring-primary/20 transition-all text-body-lg outline-none placeholder:text-outline/50 shadow-sm" placeholder="Ej. Colección Otoño 2024" required="" type="text"/>
+</div>
+<div class="space-y-2">
+<label class="block text-label-md uppercase tracking-widest text-on-surface-variant font-semibold">Description</label>
+<textarea class="w-full px-4 py-3 bg-surface-container-lowest border-none rounded-xl focus:ring-2 focus:ring-primary/20 transition-all text-body-lg outline-none placeholder:text-outline/50 shadow-sm" placeholder="Describe el propósito y alcance del proyecto..." rows="4"></textarea>
+</div>
+<div class="flex items-center justify-between p-4 bg-surface-container rounded-xl">
+<div>
+<p class="text-title-lg font-semibold text-on-surface">Initial Status</p>
+<p class="text-label-md text-secondary">Determina si el proyecto es visible inmediatamente.</p>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox" value=""/>
+<div class="w-14 h-7 bg-outline-variant/40 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-6 after:w-6 after:transition-all peer-checked:bg-primary"></div>
+<span class="ms-3 text-label-md font-bold uppercase tracking-widest text-on-surface">Active</span>
+</label>
+</div>
+<div class="flex flex-col md:flex-row gap-4 pt-6">
+<button class="hero-gradient text-on-primary px-8 py-4 rounded-xl font-semibold shadow-[0_4px_20px_-2px_rgba(159,66,0,0.2)] hover:scale-[1.02] active:scale-95 transition-all duration-300 flex-1" type="submit">
+                        Guardar proyecto
+                    </button>
+<button class="bg-white text-on-surface border border-outline-variant/40 px-8 py-4 rounded-xl font-semibold hover:bg-surface-container-low active:scale-95 transition-all duration-300" type="button">
+                        Cancelar
+                    </button>
+</div>
+</form>
+</div>
+<div class="mt-20 w-full grid grid-cols-1 md:grid-cols-3 gap-8">
+<div class="p-8 bg-surface-container-low rounded-xl">
+<span class="material-symbols-outlined text-primary text-4xl mb-4">auto_awesome</span>
+<h3 class="text-title-lg font-bold mb-2">Curación Inteligente</h3>
+<p class="text-body-lg text-secondary">Algoritmos avanzados para la organización táctil de tus flujos.</p>
+</div>
+<div class="p-8 bg-surface-container-low rounded-xl">
+<span class="material-symbols-outlined text-primary text-4xl mb-4">layers</span>
+<h3 class="text-title-lg font-bold mb-2">Capas de Datos</h3>
+<p class="text-body-lg text-secondary">Visualiza múltiples dimensiones de información en un solo lugar.</p>
+</div>
+<div class="p-8 bg-surface-container-low rounded-xl">
+<span class="material-symbols-outlined text-primary text-4xl mb-4">security</span>
+<h3 class="text-title-lg font-bold mb-2">Privacidad de Admin</h3>
+<p class="text-body-lg text-secondary">Controles granulares para la gestión segura de proyectos.</p>
+</div>
+</div>
+</main>
+<footer class="bg-[#faf9fe] dark:bg-slate-950 w-full border-t border-slate-100 dark:border-slate-800 mt-20">
+<div class="max-w-7xl mx-auto px-8 py-12 flex flex-col md:flex-row justify-between items-center gap-6">
+<div class="font-bold text-[#1a1c1f] dark:text-slate-100">CardFlow</div>
+<div class="flex flex-wrap justify-center gap-8">
+<a class="font-['Inter'] text-label-md uppercase tracking-widest text-slate-500 hover:text-[#9f4200] transition-colors" href="#">Privacy Policy</a>
+<a class="font-['Inter'] text-label-md uppercase tracking-widest text-slate-500 hover:text-[#9f4200] transition-colors" href="#">Terms of Service</a>
+<a class="font-['Inter'] text-label-md uppercase tracking-widest text-slate-500 hover:text-[#9f4200] transition-colors" href="#">Contact Support</a>
+</div>
+<div class="font-['Inter'] text-label-md uppercase tracking-widest text-slate-500">© 2024 CardFlow. The Tactile Curator Experience.</div>
+</div>
+</footer>
+</body></html>

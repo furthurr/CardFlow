@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface": "#faf9fe",
+              "surface-tint": "#9f4200",
+              "surface-dim": "#dad9de",
+              "on-error": "#ffffff",
+              "error-container": "#ffdad6",
+              "secondary-fixed": "#e2e2e2",
+              "surface-variant": "#e3e2e7",
+              "on-surface": "#1a1c1f",
+              "on-background": "#1a1c1f",
+              "secondary": "#5d5f5f",
+              "inverse-surface": "#2f3034",
+              "surface-container-highest": "#e3e2e7",
+              "on-primary-container": "#541f00",
+              "on-secondary": "#ffffff",
+              "tertiary-fixed-dim": "#8dcdff",
+              "tertiary-fixed": "#cae6ff",
+              "inverse-on-surface": "#f1f0f5",
+              "secondary-container": "#dfe0e0",
+              "tertiary": "#006493",
+              "on-tertiary-fixed-variant": "#004b70",
+              "on-primary-fixed": "#341100",
+              "on-tertiary": "#ffffff",
+              "tertiary-container": "#00a0e8",
+              "error": "#ba1a1a",
+              "on-tertiary-container": "#00334d",
+              "on-surface-variant": "#584237",
+              "background": "#faf9fe",
+              "primary-container": "#f27121",
+              "surface-container": "#eeedf2",
+              "surface-container-lowest": "#ffffff",
+              "primary-fixed": "#ffdbcb",
+              "secondary-fixed-dim": "#c6c6c7",
+              "primary": "#9f4200",
+              "on-error-container": "#93000a",
+              "outline-variant": "#dfc0b2",
+              "on-primary": "#ffffff",
+              "surface-container-high": "#e8e7ec",
+              "on-tertiary-fixed": "#001e30",
+              "surface-container-low": "#f4f3f8",
+              "primary-fixed-dim": "#ffb692",
+              "on-secondary-fixed-variant": "#454747",
+              "on-secondary-fixed": "#1a1c1c",
+              "on-primary-fixed-variant": "#793100",
+              "inverse-primary": "#ffb692",
+              "surface-bright": "#faf9fe",
+              "on-secondary-container": "#616363",
+              "outline": "#8c7265"
+            },
+            fontFamily: {
+              "headline": ["Inter"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      .primary-gradient {
+        background: linear-gradient(135deg, hsl(24, 100%, 72%) 0%, hsl(18, 98%, 53%) 100%);
+      }
+      body {
+        background-color: #faf9fe; /* surface */
+      }
+    </style>
+</head>
+<body class="font-body text-on-surface antialiased min-h-screen flex flex-col items-center justify-center p-6">
+<div class="w-full max-w-md">
+<!-- Brand Identity / Logo Section -->
+<div class="flex flex-col items-center mb-10">
+<div class="flex items-center gap-3 mb-8">
+<div class="w-12 h-12 bg-on-surface rounded-full flex items-center justify-center">
+<div class="w-6 h-6 bg-surface-container-lowest rounded-sm flex items-center justify-center">
+<span class="sr-only">nickel</span>
+</div>
+</div>
+<span class="text-2xl font-bold tracking-tight text-on-surface">nickel</span>
+</div>
+<h1 class="text-[1.75rem] font-semibold text-on-surface text-center headline-md">Bienvenido a CardFlow</h1>
+<p class="text-secondary mt-2 text-center body-lg">Ingresa tus credenciales para continuar</p>
+</div>
+<!-- Login Form Container -->
+<div class="bg-surface-container-lowest p-8 rounded-xl shadow-[0_4px_20px_-2px_rgba(26,28,31,0.06)]">
+<form class="space-y-6" onsubmit="return false;">
+<!-- Username Input Group -->
+<div class="space-y-2">
+<label class="block text-xs font-semibold uppercase tracking-wider text-outline label-md" for="username">
+                        Usuario
+                    </label>
+<div class="relative">
+<div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-outline text-xl" data-icon="person">person</span>
+</div>
+<input class="block w-full pl-11 pr-4 py-3.5 bg-surface-container-low border-none rounded-xl focus:ring-2 focus:ring-primary/20 focus:bg-surface-container-lowest transition-all duration-300 text-on-surface placeholder-outline" id="username" name="username" placeholder="nombre@ejemplo.com" type="text"/>
+</div>
+</div>
+<!-- Password Input Group -->
+<div class="space-y-2">
+<div class="flex justify-between items-center">
+<label class="block text-xs font-semibold uppercase tracking-wider text-outline label-md" for="password">
+                            Contraseña
+                        </label>
+<a class="text-xs font-semibold text-primary-container hover:text-primary transition-colors" href="#">
+                            ¿Olvidaste tu contraseña?
+                        </a>
+</div>
+<div class="relative">
+<div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-outline text-xl" data-icon="lock">lock</span>
+</div>
+<input class="block w-full pl-11 pr-12 py-3.5 bg-surface-container-low border-none rounded-xl focus:ring-2 focus:ring-primary/20 focus:bg-surface-container-lowest transition-all duration-300 text-on-surface placeholder-outline" id="password" name="password" placeholder="••••••••" type="password"/>
+<button class="absolute inset-y-0 right-0 pr-4 flex items-center text-outline hover:text-on-surface transition-colors" type="button">
+<span class="material-symbols-outlined text-xl" data-icon="visibility">visibility</span>
+</button>
+</div>
+</div>
+<!-- Submit Button -->
+<div class="pt-4">
+<button class="primary-gradient w-full py-4 px-6 rounded-xl text-on-primary font-semibold text-lg shadow-[0_4px_12px_rgba(242,113,33,0.2)] hover:shadow-[0_6px_20px_rgba(242,113,33,0.3)] active:scale-[0.98] transition-all duration-300" type="submit">
+                        Iniciar sesión
+                    </button>
+</div>
+</form>
+<!-- Secondary Actions -->
+<div class="mt-8 pt-8 border-t border-surface-container-high text-center">
+<p class="text-sm text-secondary body-lg">
+                    ¿No tienes una cuenta? 
+                    <a class="text-primary-container font-semibold hover:underline" href="#">Solicita acceso</a>
+</p>
+</div>
+</div>
+<!-- Footer / Privacy -->
+<div class="mt-12 text-center flex flex-col gap-4">
+<div class="flex justify-center gap-6">
+<a class="text-xs font-medium text-outline hover:text-secondary transition-colors label-md uppercase" href="#">Privacidad</a>
+<a class="text-xs font-medium text-outline hover:text-secondary transition-colors label-md uppercase" href="#">Términos</a>
+<a class="text-xs font-medium text-outline hover:text-secondary transition-colors label-md uppercase" href="#">Ayuda</a>
+</div>
+<p class="text-[10px] text-outline/60 tracking-widest uppercase">© 2024 Tactile Curator Platform</p>
+</div>
+</div>
+<!-- Background Decorative Elements -->
+<div class="fixed top-[-10%] right-[-5%] w-[40%] h-[40%] rounded-full blur-[120px] bg-primary-container/5 pointer-events-none -z-10"></div>
+<div class="fixed bottom-[-10%] left-[-5%] w-[30%] h-[30%] rounded-full blur-[100px] bg-tertiary-container/5 pointer-events-none -z-10"></div>
+</body></html>

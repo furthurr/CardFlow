@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>CardFlow — Gestión de Proyecto</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-secondary": "#ffffff",
+              "secondary": "#5d5f5f",
+              "surface-variant": "#e3e2e7",
+              "outline-variant": "#dfc0b2",
+              "on-error": "#ffffff",
+              "on-primary-container": "#541f00",
+              "surface-container-highest": "#e3e2e7",
+              "secondary-container": "#dfe0e0",
+              "on-secondary-container": "#616363",
+              "on-tertiary": "#ffffff",
+              "on-primary-fixed": "#341100",
+              "error": "#ba1a1a",
+              "tertiary-fixed": "#cae6ff",
+              "secondary-fixed": "#e2e2e2",
+              "inverse-surface": "#2f3034",
+              "on-tertiary-fixed": "#001e30",
+              "on-primary": "#ffffff",
+              "on-primary-fixed-variant": "#793100",
+              "surface": "#faf9fe",
+              "surface-container-lowest": "#ffffff",
+              "on-secondary-fixed-variant": "#454747",
+              "surface-container": "#eeedf2",
+              "outline": "#8c7265",
+              "tertiary-container": "#00a0e8",
+              "tertiary": "#006493",
+              "surface-container-high": "#e8e7ec",
+              "tertiary-fixed-dim": "#8dcdff",
+              "inverse-on-surface": "#f1f0f5",
+              "primary": "#9f4200",
+              "surface-tint": "#9f4200",
+              "on-background": "#1a1c1f",
+              "inverse-primary": "#ffb692",
+              "surface-dim": "#dad9de",
+              "primary-fixed-dim": "#ffb692",
+              "primary-container": "#f27121",
+              "on-tertiary-fixed-variant": "#004b70",
+              "surface-container-low": "#f4f3f8",
+              "on-secondary-fixed": "#1a1c1c",
+              "primary-fixed": "#ffdbcb",
+              "error-container": "#ffdad6",
+              "surface-bright": "#faf9fe",
+              "on-tertiary-container": "#00334d",
+              "on-surface": "#1a1c1f",
+              "secondary-fixed-dim": "#c6c6c7",
+              "on-surface-variant": "#584237",
+              "on-error-container": "#93000a",
+              "background": "#faf9fe"
+            },
+            fontFamily: {
+              "headline": ["Inter"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .hero-gradient {
+            background: linear-gradient(135deg, hsl(24, 100%, 72%) 0%, hsl(18, 98%, 53%) 100%);
+        }
+        .editorial-shadow {
+            shadow-[0_4px_20px_-2px_rgba(26,28,31,0.06)];
+        }
+    </style>
+</head>
+<body class="bg-surface font-body text-on-surface antialiased">
+<!-- TopNavBar -->
+<nav class="sticky top-4 mx-auto w-[95%] max-w-7xl mt-4 z-50 bg-white/80 backdrop-blur-xl rounded-xl shadow-[0_4px_20px_-2px_rgba(26,28,31,0.06)] flex items-center justify-between px-8 py-4">
+<div class="text-2xl font-black tracking-tighter text-[#f27121]">CardFlow</div>
+<div class="hidden md:flex items-center space-x-8">
+<a class="text-slate-600 font-medium hover:text-[#9f4200] transition-all duration-300" href="#">Platform</a>
+<a class="text-[#9f4200] font-semibold border-b-2 border-[#f27121] pb-1" href="#">Solutions</a>
+<a class="text-slate-600 font-medium hover:text-[#9f4200] transition-all duration-300" href="#">Resources</a>
+<a class="text-slate-600 font-medium hover:text-[#9f4200] transition-all duration-300" href="#">Pricing</a>
+</div>
+<div class="flex items-center space-x-4">
+<button class="p-2 rounded-full hover:bg-slate-50/50 transition-all active:scale-95">
+<span class="material-symbols-outlined text-slate-600">account_circle</span>
+</button>
+<button class="p-2 rounded-full hover:bg-slate-50/50 transition-all active:scale-95">
+<span class="material-symbols-outlined text-slate-600">logout</span>
+</button>
+</div>
+</nav>
+<main class="max-w-7xl mx-auto px-6 py-12 md:py-20">
+<!-- Header Section -->
+<header class="mb-16">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
+<div>
+<span class="text-label-md font-semibold uppercase tracking-widest text-primary mb-2 block">Panel de Administración</span>
+<h1 class="text-5xl md:text-6xl font-bold tracking-tight text-on-background">Gestión de Proyecto</h1>
+</div>
+<button class="hero-gradient text-on-primary px-8 py-4 rounded-xl font-bold shadow-lg shadow-primary/20 active:scale-95 transition-all flex items-center gap-2">
+                    Guardar cambios
+                </button>
+</div>
+</header>
+<!-- Main Grid Layout -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+<!-- Project Data Form (Left Column) -->
+<section class="lg:col-span-7 space-y-8">
+<div class="bg-surface-container-lowest p-8 rounded-xl shadow-[0_4px_20px_-2px_rgba(26,28,31,0.06)]">
+<h2 class="text-2xl font-semibold mb-8 text-on-background flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">edit_note</span>
+                        Información General
+                    </h2>
+<form class="space-y-6">
+<div class="space-y-2">
+<label class="text-label-md font-semibold uppercase tracking-wider text-secondary">Nombre del Proyecto</label>
+<input class="w-full bg-surface-container-low border-none rounded-xl p-4 focus:ring-2 focus:ring-primary/20 focus:bg-surface-container-lowest transition-all text-body-lg text-on-surface" type="text" value="Rediseño E-commerce 2024"/>
+</div>
+<div class="space-y-2">
+<label class="text-label-md font-semibold uppercase tracking-wider text-secondary">Descripción</label>
+<textarea class="w-full bg-surface-container-low border-none rounded-xl p-4 focus:ring-2 focus:ring-primary/20 focus:bg-surface-container-lowest transition-all text-body-lg text-on-surface" rows="4">Optimización del funnel de conversión y actualización de la identidad visual para la plataforma global de retail.</textarea>
+</div>
+<div class="flex items-center justify-between p-4 bg-surface-container-low rounded-xl">
+<div>
+<p class="font-semibold text-on-surface">Estado del Proyecto</p>
+<p class="text-sm text-secondary">El proyecto es visible para todos los miembros.</p>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-14 h-7 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:start-[4px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-6 after:w-6 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</div>
+</form>
+</div>
+<!-- Add Member Search -->
+<div class="bg-surface-container-lowest p-8 rounded-xl shadow-[0_4px_20px_-2px_rgba(26,28,31,0.06)]">
+<h2 class="text-2xl font-semibold mb-6 text-on-background flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">person_add</span>
+                        Añadir Miembros
+                    </h2>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-secondary">search</span>
+<input class="w-full bg-surface-container-low border-none rounded-xl pl-12 pr-4 py-4 focus:ring-2 focus:ring-primary/20 transition-all" placeholder="Buscar por nombre o email..." type="text"/>
+</div>
+</div>
+</section>
+<!-- Member List (Right Column) -->
+<aside class="lg:col-span-5">
+<div class="bg-surface-container-low p-8 rounded-xl h-full">
+<h2 class="text-2xl font-semibold mb-8 text-on-background flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">group</span>
+                        Equipo del Proyecto
+                    </h2>
+<div class="space-y-4">
+<!-- Member Card -->
+<div class="bg-surface-container-lowest p-4 rounded-xl flex items-center justify-between group hover:shadow-sm transition-all">
+<div class="flex items-center gap-4">
+<img class="w-12 h-12 rounded-full object-cover" data-alt="Female user profile portrait" src="https://lh3.googleusercontent.com/aida-public/AB6AXuClktUyKTfLI7nhVb8jon_BZo-fww1FyrdVxe-6caeQSgVMCQarvlv6_PNHWNQuJuaG9BLIaznR2TlndWCpcMMRsZ3f8K03OFHL2V9V03mvFyJdgyz8JW_TtCublmHHO5l9FloWNPkUMAhY0_1YZyu6UfXL70DIre4mECRRb3sx-wmHnYOKS9snG40UPDI82oBdGUm4jmVTDKqImxTs7euXeulpN_KJl0wftEIhpPj8Z3fMTRWK_hhB0RoCNLqTlZVkDfKkrPrrAck5"/>
+<div>
+<p class="font-bold text-on-surface">Elena Rodríguez</p>
+<p class="text-xs text-secondary uppercase tracking-widest font-semibold">Lead Designer</p>
+</div>
+</div>
+<button class="text-secondary hover:text-error transition-colors p-2 opacity-0 group-hover:opacity-100">
+<span class="material-symbols-outlined">person_remove</span>
+</button>
+</div>
+<!-- Member Card -->
+<div class="bg-surface-container-lowest p-4 rounded-xl flex items-center justify-between group hover:shadow-sm transition-all">
+<div class="flex items-center gap-4">
+<img class="w-12 h-12 rounded-full object-cover" data-alt="Male user profile portrait" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDFLW1qBUcB3JJFndM2oJlHw-fuxq8i4fX-fbGr1Eaf5MkLes0g0_a2zfNK7HB2Mgl6zoejfxRkm4bRSIZjCRZHzrnGDP-c6sd6s0QUMP8eDgL-YFBojIF1ITsep1s1U-vEWysCvdRZn5O1On1-KO9xnyJzddBQa4nsqIJq8byl7Y2rtet5aU1Z3MVlkAwkM3ANiYboGANqSN5q6YYSrsr7UjCb7YDdT-0jmQ8dkhcEKhiz1nzukS9iBQQz40L1jteCBqK0oafYRPB1"/>
+<div>
+<p class="font-bold text-on-surface">Marcos Sánz</p>
+<p class="text-xs text-secondary uppercase tracking-widest font-semibold">Fullstack Dev</p>
+</div>
+</div>
+<button class="text-secondary hover:text-error transition-colors p-2 opacity-0 group-hover:opacity-100">
+<span class="material-symbols-outlined">person_remove</span>
+</button>
+</div>
+<!-- Member Card -->
+<div class="bg-surface-container-lowest p-4 rounded-xl flex items-center justify-between group hover:shadow-sm transition-all">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-primary-fixed flex items-center justify-center text-primary font-bold">
+                                    AL
+                                </div>
+<div>
+<p class="font-bold text-on-surface">Ana López</p>
+<p class="text-xs text-secondary uppercase tracking-widest font-semibold">Product Owner</p>
+</div>
+</div>
+<button class="text-secondary hover:text-error transition-colors p-2 opacity-0 group-hover:opacity-100">
+<span class="material-symbols-outlined">person_remove</span>
+</button>
+</div>
+<!-- Member Card -->
+<div class="bg-surface-container-lowest p-4 rounded-xl flex items-center justify-between group hover:shadow-sm transition-all">
+<div class="flex items-center gap-4">
+<img class="w-12 h-12 rounded-full object-cover" data-alt="Professional user profile photo" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA7PB20igU4DChRm7kxX9pgdLbZ_Dhkz0Pjwqdsy3dkKjizHPn9jj6UU7wiVX29GLNgQs7TirXChe_eBZzpAsgTj54O4qOULfZ4nVjjk9UEW6Mnibq4e5ceGG7QxeAohbtKFGrLy8iQKbSAZaDU_siiYIk15sMxeOAGtM32ZBtlrr-gzrCork63f5IidY1969J2QB_Pmh9Naiei-VWXM0lssf0jWiUFSJMPASPEAO8lKHWAYTPU3upytzQoUycWIphQEiqCm0UMONkk"/>
+<div>
+<p class="font-bold text-on-surface">David Chen</p>
+<p class="text-xs text-secondary uppercase tracking-widest font-semibold">QA Engineer</p>
+</div>
+</div>
+<button class="text-secondary hover:text-error transition-colors p-2 opacity-0 group-hover:opacity-100">
+<span class="material-symbols-outlined">person_remove</span>
+</button>
+</div>
+</div>
+<div class="mt-8 pt-8 border-t border-outline-variant/20">
+<p class="text-sm text-secondary italic">Solo los administradores pueden gestionar los permisos de los miembros.</p>
+</div>
+</div>
+</aside>
+</div>
+<!-- Danger Zone -->
+<section class="mt-16 bg-error-container/20 border border-error/10 p-8 rounded-xl flex flex-col md:flex-row items-center justify-between gap-6">
+<div>
+<h3 class="text-xl font-bold text-error">Zona de peligro</h3>
+<p class="text-on-surface-variant">Eliminar este proyecto es una acción irreversible. Se perderán todos los datos asociados.</p>
+</div>
+<button class="px-6 py-3 rounded-lg border-2 border-error text-error font-bold hover:bg-error hover:text-white transition-all">
+                Eliminar Proyecto
+            </button>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-[#faf9fe] dark:bg-slate-950 w-full border-t border-slate-100 dark:border-slate-800 mt-20">
+<div class="max-w-7xl mx-auto px-8 py-12 flex flex-col md:flex-row justify-between items-center gap-6">
+<div class="font-bold text-[#1a1c1f] dark:text-slate-100">CardFlow</div>
+<div class="flex gap-8">
+<a class="font-['Inter'] text-label-md uppercase tracking-widest text-slate-500 hover:text-[#9f4200] transition-colors" href="#">Privacy Policy</a>
+<a class="font-['Inter'] text-label-md uppercase tracking-widest text-slate-500 hover:text-[#9f4200] transition-colors" href="#">Terms of Service</a>
+<a class="font-['Inter'] text-label-md uppercase tracking-widest text-slate-500 hover:text-[#9f4200] transition-colors" href="#">Contact Support</a>
+</div>
+<div class="font-['Inter'] text-label-md uppercase tracking-widest text-slate-500 opacity-80">
+                © 2024 CardFlow. The Tactile Curator Experience.
+            </div>
+</div>
+</footer>
+</body></html>

@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+
+<html lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>CardFlow — Administración de Usuarios</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-secondary": "#ffffff",
+              "secondary": "#5d5f5f",
+              "surface-variant": "#e3e2e7",
+              "outline-variant": "#dfc0b2",
+              "on-error": "#ffffff",
+              "on-primary-container": "#541f00",
+              "surface-container-highest": "#e3e2e7",
+              "secondary-container": "#dfe0e0",
+              "on-secondary-container": "#616363",
+              "on-tertiary": "#ffffff",
+              "on-primary-fixed": "#341100",
+              "error": "#ba1a1a",
+              "tertiary-fixed": "#cae6ff",
+              "secondary-fixed": "#e2e2e2",
+              "inverse-surface": "#2f3034",
+              "on-tertiary-fixed": "#001e30",
+              "on-primary": "#ffffff",
+              "on-primary-fixed-variant": "#793100",
+              "surface": "#faf9fe",
+              "surface-container-lowest": "#ffffff",
+              "on-secondary-fixed-variant": "#454747",
+              "surface-container": "#eeedf2",
+              "outline": "#8c7265",
+              "tertiary-container": "#00a0e8",
+              "tertiary": "#006493",
+              "surface-container-high": "#e8e7ec",
+              "tertiary-fixed-dim": "#8dcdff",
+              "inverse-on-surface": "#f1f0f5",
+              "primary": "#9f4200",
+              "surface-tint": "#9f4200",
+              "on-background": "#1a1c1f",
+              "inverse-primary": "#ffb692",
+              "surface-dim": "#dad9de",
+              "primary-fixed-dim": "#ffb692",
+              "primary-container": "#f27121",
+              "on-tertiary-fixed-variant": "#004b70",
+              "surface-container-low": "#f4f3f8",
+              "on-secondary-fixed": "#1a1c1c",
+              "primary-fixed": "#ffdbcb",
+              "error-container": "#ffdad6",
+              "surface-bright": "#faf9fe",
+              "on-tertiary-container": "#00334d",
+              "on-surface": "#1a1c1f",
+              "secondary-fixed-dim": "#c6c6c7",
+              "on-surface-variant": "#584237",
+              "on-error-container": "#93000a",
+              "background": "#faf9fe"
+            },
+            fontFamily: {
+              "headline": ["Inter"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        .bg-sun-gradient {
+            background: linear-gradient(135deg, hsl(24, 100%, 72%), hsl(18, 98%, 53%));
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #faf9fe;
+        }
+    </style>
+</head>
+<body class="text-on-background antialiased min-h-screen">
+<!-- TopNavBar -->
+<nav class="bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl rounded-xl sticky top-4 mx-auto w-[95%] max-w-7xl mt-4 shadow-[0_4px_20px_-2px_rgba(26,28,31,0.06)] dark:shadow-none flex items-center justify-between px-8 py-4 z-50">
+<div class="text-2xl font-black tracking-tighter text-[#f27121]">CardFlow</div>
+<div class="hidden md:flex items-center gap-8">
+<a class="text-slate-600 dark:text-slate-400 font-medium hover:text-[#9f4200] transition-all duration-300" href="#">Platform</a>
+<a class="text-slate-600 dark:text-slate-400 font-medium hover:text-[#9f4200] transition-all duration-300" href="#">Solutions</a>
+<a class="text-slate-600 dark:text-slate-400 font-medium hover:text-[#9f4200] transition-all duration-300" href="#">Resources</a>
+<a class="text-slate-600 dark:text-slate-400 font-medium hover:text-[#9f4200] transition-all duration-300" href="#">Pricing</a>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 text-slate-600 hover:bg-slate-50/50 rounded-full transition-all active:scale-95">
+<span class="material-symbols-outlined" data-icon="account_circle">account_circle</span>
+</button>
+<button class="p-2 text-slate-600 hover:bg-slate-50/50 rounded-full transition-all active:scale-95">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+</button>
+</div>
+</nav>
+<!-- Main Content -->
+<main class="max-w-7xl mx-auto px-8 pt-12 pb-24">
+<!-- Header Section -->
+<header class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+<div class="space-y-2">
+<h1 class="text-4xl md:text-5xl font-bold tracking-tight text-on-background">Administración de Usuarios</h1>
+<p class="text-body-lg text-secondary max-w-xl">Gestiona los permisos y el acceso de los miembros del equipo a la plataforma CardFlow.</p>
+</div>
+<button class="bg-sun-gradient text-on-primary font-semibold px-6 py-3 rounded-xl shadow-[0_4px_12px_rgba(159,66,0,0.2)] hover:opacity-90 active:scale-95 transition-all flex items-center gap-2">
+<span class="material-symbols-outlined text-xl" data-icon="person_add">person_add</span>
+                Crear usuario
+            </button>
+</header>
+<!-- Stats Grid (Bento Style) -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+<div class="bg-surface-container-low p-6 rounded-xl flex flex-col gap-1">
+<span class="text-label-md uppercase tracking-widest text-secondary font-semibold">Total Usuarios</span>
+<span class="text-3xl font-bold text-on-background">1,284</span>
+</div>
+<div class="bg-surface-container-low p-6 rounded-xl flex flex-col gap-1">
+<span class="text-label-md uppercase tracking-widest text-secondary font-semibold">Administradores</span>
+<span class="text-3xl font-bold text-on-background">12</span>
+</div>
+<div class="bg-surface-container-low p-6 rounded-xl flex flex-col gap-1">
+<span class="text-label-md uppercase tracking-widest text-secondary font-semibold">Usuarios Activos</span>
+<span class="text-3xl font-bold text-primary">98.2%</span>
+</div>
+</div>
+<!-- Table Controls -->
+<div class="bg-surface-container-low rounded-xl p-4 mb-2 flex flex-col md:flex-row items-center justify-between gap-4">
+<div class="relative w-full md:w-96">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-secondary" data-icon="search">search</span>
+<input class="w-full bg-surface-container-lowest border-none rounded-lg pl-10 pr-4 py-2 focus:ring-2 focus:ring-primary/20 text-body-lg" placeholder="Buscar por nombre o usuario..." type="text"/>
+</div>
+<div class="flex items-center gap-3 w-full md:w-auto">
+<button class="flex-1 md:flex-none bg-surface-container-lowest text-on-surface-variant px-4 py-2 rounded-lg font-medium hover:bg-surface-container-high transition-colors flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-lg" data-icon="filter_list">filter_list</span>
+                    Filtrar
+                </button>
+<button class="flex-1 md:flex-none bg-surface-container-lowest text-on-surface-variant px-4 py-2 rounded-lg font-medium hover:bg-surface-container-high transition-colors flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-lg" data-icon="download">download</span>
+                    Exportar
+                </button>
+</div>
+</div>
+<!-- Data Table Container -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden">
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-low/50">
+<th class="px-6 py-4 text-label-md uppercase tracking-widest text-secondary font-bold">ID</th>
+<th class="px-6 py-4 text-label-md uppercase tracking-widest text-secondary font-bold">Nombre</th>
+<th class="px-6 py-4 text-label-md uppercase tracking-widest text-secondary font-bold">Username</th>
+<th class="px-6 py-4 text-label-md uppercase tracking-widest text-secondary font-bold">Role</th>
+<th class="px-6 py-4 text-label-md uppercase tracking-widest text-secondary font-bold">Status</th>
+<th class="px-6 py-4 text-label-md uppercase tracking-widest text-secondary font-bold text-right">Acción</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container">
+<!-- Row 1 -->
+<tr class="hover:bg-surface-container-low transition-colors group">
+<td class="px-6 py-5 text-body-lg font-mono text-secondary">#USR-8921</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-primary-fixed flex items-center justify-center text-on-primary-fixed font-bold">AM</div>
+<span class="text-body-lg font-semibold text-on-background">Adrian Morales</span>
+</div>
+</td>
+<td class="px-6 py-5 text-body-lg text-on-surface-variant">amorales_dev</td>
+<td class="px-6 py-5">
+<span class="bg-on-primary-container/10 text-on-primary-container px-3 py-1 rounded-full text-label-md font-bold">Admin</span>
+</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-2">
+<div class="w-2 h-2 rounded-full bg-emerald-500"></div>
+<span class="text-body-lg font-medium text-emerald-700">Active</span>
+</div>
+</td>
+<td class="px-6 py-5 text-right">
+<button class="text-primary font-semibold hover:underline flex items-center justify-end gap-1 ml-auto opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-lg" data-icon="edit">edit</span>
+                                    Edit
+                                </button>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-surface-container-low transition-colors group">
+<td class="px-6 py-5 text-body-lg font-mono text-secondary">#USR-7732</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-3">
+<img alt="Elena Ruiz" class="w-10 h-10 rounded-full object-cover" data-alt="Female profile photo smiling" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAjt3tpBYPg9agdcgPY0FZ2dECVeF7TEpanX6fnweqLdV6oVIbYaZSmgRx__eS2LM0T9WfFvkRlt3MZwWPIH41V0zNWASh_FIjiFqBTnyvamw2G_sp_zoN6_hP_NSG6VS-WIWMseh8juLnE8phQhip9OTF9kVS7B5l3GqvwbphkVyIsloVwlBGybib7LcjwLILAiuH906SnJH6f8vlpzfZS6yW7b7zaErzLC5WynkqQxar463Acjw8_5QkoiaViYmbjkxsygHS3gsVy"/>
+<span class="text-body-lg font-semibold text-on-background">Elena Ruiz</span>
+</div>
+</td>
+<td class="px-6 py-5 text-body-lg text-on-surface-variant">eruiz_flow</td>
+<td class="px-6 py-5">
+<span class="bg-secondary-container text-on-secondary-container px-3 py-1 rounded-full text-label-md font-bold">User</span>
+</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-2">
+<div class="w-2 h-2 rounded-full bg-emerald-500"></div>
+<span class="text-body-lg font-medium text-emerald-700">Active</span>
+</div>
+</td>
+<td class="px-6 py-5 text-right">
+<button class="text-primary font-semibold hover:underline flex items-center justify-end gap-1 ml-auto opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-lg" data-icon="edit">edit</span>
+                                    Edit
+                                </button>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-surface-container-low transition-colors group">
+<td class="px-6 py-5 text-body-lg font-mono text-secondary">#USR-2104</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-tertiary-fixed flex items-center justify-center text-on-tertiary-fixed font-bold">JP</div>
+<span class="text-body-lg font-semibold text-on-background">Julian Paredes</span>
+</div>
+</td>
+<td class="px-6 py-5 text-body-lg text-on-surface-variant">julian_p</td>
+<td class="px-6 py-5">
+<span class="bg-secondary-container text-on-secondary-container px-3 py-1 rounded-full text-label-md font-bold">User</span>
+</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-2">
+<div class="w-2 h-2 rounded-full bg-slate-300"></div>
+<span class="text-body-lg font-medium text-secondary">Inactive</span>
+</div>
+</td>
+<td class="px-6 py-5 text-right">
+<button class="text-primary font-semibold hover:underline flex items-center justify-end gap-1 ml-auto opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-lg" data-icon="edit">edit</span>
+                                    Edit
+                                </button>
+</td>
+</tr>
+<!-- Row 4 -->
+<tr class="hover:bg-surface-container-low transition-colors group">
+<td class="px-6 py-5 text-body-lg font-mono text-secondary">#USR-5590</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-3">
+<img alt="Marco Salas" class="w-10 h-10 rounded-full object-cover" data-alt="Professional man profile headshot" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCb1-duKqNHOjYN9Epj-u4zHrX_EZ7io2BKYb49jlEtbTIyxYlFYP22If-QyYO38nqw68UNSbu1zQN9illFdJwYIYPpa2aX4Wm-VJ75a6Q6sPDFyIFutb8K4VG-MKI7p-JLWnEZkSVJ1UgBommg05RGFP8MG8OKqenuroTQhn4wEXEEtL1FsyT-o32B-rlBue4rTIfzIn9sqm-31ilNWTQbnviFCeVNMdCAUz8OvKogOvYfyLPtyZ_6fZP10wGBQlGcXUsFyp_6cUWZ"/>
+<span class="text-body-lg font-semibold text-on-background">Marco Salas</span>
+</div>
+</td>
+<td class="px-6 py-5 text-body-lg text-on-surface-variant">msalas_admin</td>
+<td class="px-6 py-5">
+<span class="bg-on-primary-container/10 text-on-primary-container px-3 py-1 rounded-full text-label-md font-bold">Admin</span>
+</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-2">
+<div class="w-2 h-2 rounded-full bg-emerald-500"></div>
+<span class="text-body-lg font-medium text-emerald-700">Active</span>
+</div>
+</td>
+<td class="px-6 py-5 text-right">
+<button class="text-primary font-semibold hover:underline flex items-center justify-end gap-1 ml-auto opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-lg" data-icon="edit">edit</span>
+                                    Edit
+                                </button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Pagination -->
+<div class="px-6 py-4 bg-surface-container-low/30 flex items-center justify-between border-t border-surface-container">
+<span class="text-label-md text-secondary font-medium">Mostrando 4 de 1,284 usuarios</span>
+<div class="flex gap-2">
+<button class="w-8 h-8 flex items-center justify-center rounded-lg bg-surface-container-lowest border border-surface-container-high text-secondary hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-lg" data-icon="chevron_left">chevron_left</span>
+</button>
+<button class="w-8 h-8 flex items-center justify-center rounded-lg bg-primary text-on-primary font-bold text-sm">1</button>
+<button class="w-8 h-8 flex items-center justify-center rounded-lg bg-surface-container-lowest border border-surface-container-high text-secondary hover:bg-surface-container-high transition-colors text-sm font-medium">2</button>
+<button class="w-8 h-8 flex items-center justify-center rounded-lg bg-surface-container-lowest border border-surface-container-high text-secondary hover:bg-surface-container-high transition-colors text-sm font-medium">3</button>
+<button class="w-8 h-8 flex items-center justify-center rounded-lg bg-surface-container-lowest border border-surface-container-high text-secondary hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-lg" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-[#faf9fe] dark:bg-slate-950 w-full border-t border-slate-100 dark:border-slate-800">
+<div class="max-w-7xl mx-auto px-8 py-12 flex flex-col md:flex-row justify-between items-center gap-6">
+<div class="flex flex-col items-center md:items-start gap-2">
+<div class="font-bold text-[#1a1c1f] dark:text-slate-100 text-lg">CardFlow</div>
+<p class="font-['Inter'] text-[10px] uppercase tracking-widest text-slate-500">© 2024 CardFlow. The Tactile Curator Experience.</p>
+</div>
+<div class="flex gap-8">
+<a class="font-['Inter'] text-[10px] uppercase tracking-widest text-slate-500 hover:text-[#9f4200] transition-colors opacity-80 hover:opacity-100" href="#">Privacy Policy</a>
+<a class="font-['Inter'] text-[10px] uppercase tracking-widest text-slate-500 hover:text-[#9f4200] transition-colors opacity-80 hover:opacity-100" href="#">Terms of Service</a>
+<a class="font-['Inter'] text-[10px] uppercase tracking-widest text-slate-500 hover:text-[#9f4200] transition-colors opacity-80 hover:opacity-100" href="#">Contact Support</a>
+</div>
+</div>
+</footer>
+</body></html>

@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+
+<html lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface-bright": "#faf9fe",
+              "primary": "#9f4200",
+              "on-secondary": "#ffffff",
+              "on-secondary-fixed-variant": "#454747",
+              "primary-fixed-dim": "#ffb692",
+              "on-background": "#1a1c1f",
+              "background": "#faf9fe",
+              "tertiary-fixed-dim": "#8dcdff",
+              "primary-fixed": "#ffdbcb",
+              "inverse-primary": "#ffb692",
+              "on-primary": "#ffffff",
+              "on-primary-fixed-variant": "#793100",
+              "surface": "#faf9fe",
+              "tertiary-container": "#00a0e8",
+              "surface-container-lowest": "#ffffff",
+              "surface-dim": "#dad9de",
+              "secondary-fixed": "#e2e2e2",
+              "on-tertiary-fixed": "#001e30",
+              "surface-variant": "#e3e2e7",
+              "outline-variant": "#dfc0b2",
+              "inverse-on-surface": "#f1f0f5",
+              "surface-container-highest": "#e3e2e7",
+              "surface-container-low": "#f4f3f8",
+              "secondary-container": "#dfe0e0",
+              "on-primary-container": "#541f00",
+              "inverse-surface": "#2f3034",
+              "surface-container-high": "#e8e7ec",
+              "on-surface-variant": "#584237",
+              "tertiary": "#006493",
+              "secondary": "#5d5f5f",
+              "primary-container": "#f27121",
+              "on-tertiary-container": "#00334d",
+              "on-primary-fixed": "#341100",
+              "on-tertiary-fixed-variant": "#004b70",
+              "on-error-container": "#93000a",
+              "on-secondary-container": "#616363",
+              "on-error": "#ffffff",
+              "error-container": "#ffdad6",
+              "error": "#ba1a1a",
+              "surface-container": "#eeedf2",
+              "tertiary-fixed": "#cae6ff",
+              "on-tertiary": "#ffffff",
+              "secondary-fixed-dim": "#c6c6c7",
+              "on-secondary-fixed": "#1a1c1c",
+              "outline": "#8c7265",
+              "on-surface": "#1a1c1f",
+              "surface-tint": "#9f4200"
+            },
+            fontFamily: {
+              "headline": ["Inter"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .bg-sun-gradient {
+            background: linear-gradient(135deg, hsl(24, 100%, 72%), hsl(18, 98%, 53%));
+        }
+        .premium-shadow {
+            shadow-color: rgba(26, 28, 31, 0.06);
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body min-h-screen">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-[#ffffffcc] backdrop-blur-xl shadow-[0_4px_20px_-2px_rgba(26,28,31,0.06)] flex justify-between items-center px-8 py-4 max-w-full">
+<div class="flex items-center gap-8">
+<span class="text-[#f27121] font-bold text-2xl tracking-tighter">CardFlow</span>
+<nav class="hidden md:flex gap-6 items-center">
+<a class="font-['Inter'] font-semibold text-lg tracking-tight text-[#1a1c1f] opacity-70 hover:bg-[#f271211a] transition-colors duration-200 px-3 py-1 rounded-lg" href="#">Dashboard</a>
+<a class="font-['Inter'] font-semibold text-lg tracking-tight text-[#1a1c1f] opacity-70 hover:bg-[#f271211a] transition-colors duration-200 px-3 py-1 rounded-lg" href="#">Cards</a>
+<a class="font-['Inter'] font-semibold text-lg tracking-tight text-[#1a1c1f] opacity-70 hover:bg-[#f271211a] transition-colors duration-200 px-3 py-1 rounded-lg" href="#">Analytics</a>
+<a class="font-['Inter'] font-semibold text-lg tracking-tight text-[#9f4200] border-b-2 border-[#f27121] pb-1" href="#">Settings</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-[#1a1c1f] opacity-70 hover:bg-[#f271211a] p-2 rounded-full transition-all active:scale-95" data-icon="notifications">notifications</button>
+<button class="material-symbols-outlined text-[#1a1c1f] opacity-70 hover:bg-[#f271211a] p-2 rounded-full transition-all active:scale-95" data-icon="help">help</button>
+<img alt="User profile avatar" class="w-10 h-10 rounded-full border-2 border-primary-container object-cover" data-alt="Modern professional headshot of a man" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBYYcq8PSq9ycjUdJQknvVcViwI8XK9lsg6_LtDCgwwFYajdKgpT9uuMOOqlO2vt7LSCzlwDhgWLw1PqOWNP5EoIF9tZPtS6WwgxlhBUjjLdLeTOwk-MxmrivFBiKL8yzgCX3U4HlPl4lyfAKXtM3EcmH_fOw5CAiXvqZOXwRL7fVDMl4ok4l8Wy3ryDcq58LgBvbLupq0tu-gMt0hVMkB5p3op-0TNvkoCdKiVS5ssIiOF59ULKngNGy2uhkRvwmgdX1VmhkYcfT9f"/>
+</div>
+</header>
+<!-- SideNavBar (Desktop) -->
+<aside class="hidden lg:flex h-screen w-64 fixed left-0 top-0 bg-[#faf9fe] border-r border-[#1a1c1f0d] flex-col p-6 z-40 pt-24">
+<div class="space-y-2 flex-1">
+<a class="flex items-center gap-3 p-3 text-[#1a1c1f99] font-['Inter'] text-sm font-medium hover:text-[#f27121] hover:bg-[#f271210d] rounded-xl transition-all duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span>Dashboard</span>
+</a>
+<a class="flex items-center gap-3 p-3 text-[#1a1c1f99] font-['Inter'] text-sm font-medium hover:text-[#f27121] hover:bg-[#f271210d] rounded-xl transition-all duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="credit_card">credit_card</span>
+<span>Cards</span>
+</a>
+<a class="flex items-center gap-3 p-3 text-[#1a1c1f99] font-['Inter'] text-sm font-medium hover:text-[#f27121] hover:bg-[#f271210d] rounded-xl transition-all duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="bar_chart">bar_chart</span>
+<span>Analytics</span>
+</a>
+<a class="flex items-center gap-3 p-3 bg-white text-[#f27121] shadow-sm rounded-xl font-['Inter'] text-sm font-medium transition-all duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="settings" style="font-variation-settings: 'FILL' 1;">settings</span>
+<span>Settings</span>
+</a>
+</div>
+<div class="pt-6 border-t border-[#1a1c1f0d] space-y-2">
+<a class="flex items-center gap-3 p-3 text-[#1a1c1f99] font-['Inter'] text-sm font-medium hover:text-[#f27121] hover:bg-[#f271210d] rounded-xl transition-all duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="contact_support">contact_support</span>
+<span>Support</span>
+</a>
+<a class="flex items-center gap-3 p-3 text-[#1a1c1f99] font-['Inter'] text-sm font-medium hover:text-[#f27121] hover:bg-[#f271210d] rounded-xl transition-all duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+<span>Logout</span>
+</a>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="pt-28 pb-12 px-6 lg:ml-64 max-w-5xl mx-auto">
+<!-- Page Title -->
+<div class="mb-12">
+<h1 class="text-5xl font-bold font-headline tracking-tight text-on-background mb-2">Mi Perfil</h1>
+<p class="text-secondary text-lg">Administra tu información personal y configuración de seguridad.</p>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
+<!-- Profile Section (Asymmetric Left) -->
+<div class="lg:col-span-5 space-y-8">
+<div class="bg-surface-container-low rounded-xl p-8 shadow-[0_4px_20px_-2px_rgba(26,28,31,0.06)] relative overflow-hidden">
+<!-- Abstract Background Pattern -->
+<div class="absolute top-0 right-0 w-32 h-32 bg-primary-container opacity-5 rounded-full -mr-16 -mt-16"></div>
+<div class="relative z-10">
+<div class="flex flex-col items-center md:items-start md:flex-row gap-6 mb-8">
+<div class="relative">
+<img alt="Adrian Morales profile" class="w-32 h-32 rounded-xl object-cover border-4 border-surface-container-lowest shadow-lg" data-alt="Close up portrait of Adrian Morales" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDIjqWyYjJHWcxXJ6GjvGIsAhAoF_gHYK6Rf2lHOvQ71Z-QB0_dbWnosDQuB3TmSXZpJM9AQOuMlNOlkE2Rg6ycnYpCeopiVEpeOhLnxUnAdkq4mWZMQOvpqHjOLsBr7X_J1rkKeo89Gv5pqw2ghW8P0Km1I6u8dfEAfl9kHgbYTGmv_yBVUThMbVQumlnWzQoA4Sj7fB1apH8uleulbEdzqVzWoiA8Vrn4FGo6wXDdK7stXsQlaSvo5QXnlm7nRhOiV6l4zSa8B1SE"/>
+<button class="absolute -bottom-2 -right-2 bg-primary-container text-white p-2 rounded-lg shadow-md active:scale-95 transition-transform hover:brightness-110">
+<span class="material-symbols-outlined text-sm" data-icon="edit">edit</span>
+</button>
+</div>
+<div class="text-center md:text-left pt-2">
+<h2 class="text-2xl font-bold text-on-background">Adrian Morales</h2>
+<p class="text-secondary font-medium">@amorales_dev</p>
+<div class="mt-4 flex flex-wrap gap-2 justify-center md:justify-start">
+<span class="px-3 py-1 bg-surface-container-high text-on-surface-variant rounded-full text-xs font-bold tracking-wider">ADMIN</span>
+<span class="px-3 py-1 bg-green-100 text-green-700 rounded-full text-xs font-bold tracking-wider flex items-center gap-1">
+<span class="w-1.5 h-1.5 bg-green-500 rounded-full"></span>
+                                        ACTIVE
+                                    </span>
+</div>
+</div>
+</div>
+<div class="space-y-4 border-t border-outline-variant/20 pt-6">
+<div class="flex justify-between items-center group">
+<span class="text-secondary text-sm">Email</span>
+<span class="text-on-surface font-medium">a.morales@cardflow.io</span>
+</div>
+<div class="flex justify-between items-center group">
+<span class="text-secondary text-sm">Miembro desde</span>
+<span class="text-on-surface font-medium">Octubre 2023</span>
+</div>
+<div class="flex justify-between items-center group">
+<span class="text-secondary text-sm">Zona horaria</span>
+<span class="text-on-surface font-medium">Madrid (GMT+1)</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Integration Highlight (Editorial Moment) -->
+<div class="bg-primary-container/10 border border-primary-container/20 rounded-xl p-6">
+<div class="flex items-start gap-4">
+<div class="bg-primary-container text-on-primary p-3 rounded-xl">
+<span class="material-symbols-outlined" data-icon="verified_user" style="font-variation-settings: 'FILL' 1;">verified_user</span>
+</div>
+<div>
+<h4 class="font-bold text-primary">Verificación de Cuenta</h4>
+<p class="text-sm text-on-primary-container/80 mt-1">Tu identidad ha sido verificada exitosamente. Tienes acceso total a las funciones premium de gestión.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Security Section (Asymmetric Right) -->
+<div class="lg:col-span-7">
+<div class="bg-surface-container-lowest rounded-xl p-8 shadow-[0_4px_20px_-2px_rgba(26,28,31,0.06)] border border-outline-variant/10">
+<div class="mb-8">
+<h3 class="text-2xl font-semibold font-headline text-on-background">Seguridad y Contraseña</h3>
+<p class="text-secondary text-sm mt-1">Actualiza tu contraseña periódicamente para mantener tu cuenta protegida.</p>
+</div>
+<form action="#" class="space-y-6">
+<div class="space-y-2">
+<label class="block text-sm font-semibold text-on-surface-variant ml-1" for="current_pass">Contraseña actual</label>
+<input class="w-full bg-surface-container-low border-0 rounded-xl px-4 py-4 focus:ring-2 focus:ring-primary-container/20 transition-all text-on-surface placeholder:text-secondary/50" id="current_pass" name="current_pass" placeholder="••••••••••••" type="password"/>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="space-y-2">
+<label class="block text-sm font-semibold text-on-surface-variant ml-1" for="new_pass">Nueva contraseña</label>
+<input class="w-full bg-surface-container-low border-0 rounded-xl px-4 py-4 focus:ring-2 focus:ring-primary-container/20 transition-all text-on-surface" id="new_pass" name="new_pass" type="password"/>
+</div>
+<div class="space-y-2">
+<label class="block text-sm font-semibold text-on-surface-variant ml-1" for="confirm_pass">Confirmar nueva contraseña</label>
+<input class="w-full bg-surface-container-low border-0 rounded-xl px-4 py-4 focus:ring-2 focus:ring-primary-container/20 transition-all text-on-surface" id="confirm_pass" name="confirm_pass" type="password"/>
+</div>
+</div>
+<div class="bg-surface-container-low p-4 rounded-xl flex items-center gap-3">
+<span class="material-symbols-outlined text-primary-container text-xl" data-icon="info">info</span>
+<p class="text-xs text-on-surface-variant leading-relaxed">
+                                La contraseña debe tener al menos 12 caracteres, incluir una letra mayúscula, un número y un símbolo especial.
+                            </p>
+</div>
+<div class="pt-4 flex flex-col md:flex-row gap-4 items-center justify-between">
+<button class="text-primary font-semibold text-sm hover:underline" type="button">
+                                ¿Olvidaste tu contraseña?
+                            </button>
+<button class="w-full md:w-auto px-10 py-4 bg-sun-gradient text-white font-bold rounded-xl shadow-[0_4px_20px_-2px_rgba(242,113,33,0.3)] active:scale-95 transition-all hover:brightness-110" type="submit">
+                                Guardar cambios
+                            </button>
+</div>
+</form>
+</div>
+<!-- Two Factor Authentication Promo -->
+<div class="mt-8 bg-surface-container-low rounded-xl p-8 flex flex-col md:flex-row justify-between items-center gap-6 border border-outline-variant/10">
+<div class="flex items-center gap-6">
+<div class="w-16 h-16 rounded-full bg-white flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-3xl text-primary" data-icon="phonelink_lock">phonelink_lock</span>
+</div>
+<div>
+<h4 class="font-bold text-on-background text-lg">Doble Factor de Autenticación</h4>
+<p class="text-secondary text-sm">Añade una capa extra de seguridad a tu cuenta.</p>
+</div>
+</div>
+<button class="px-6 py-2 border-2 border-primary text-primary font-bold rounded-xl hover:bg-primary/5 transition-colors">
+                        Configurar
+                    </button>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar (Mobile) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full bg-white/90 backdrop-blur-lg border-t border-outline-variant/10 flex justify-around items-center py-3 px-4 z-50">
+<button class="flex flex-col items-center gap-1 text-[#1a1c1f99]">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="text-[10px] font-bold">Dashboard</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-[#1a1c1f99]">
+<span class="material-symbols-outlined" data-icon="credit_card">credit_card</span>
+<span class="text-[10px] font-bold">Cards</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-[#1a1c1f99]">
+<span class="material-symbols-outlined" data-icon="bar_chart">bar_chart</span>
+<span class="text-[10px] font-bold">Analytics</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-[#f27121]">
+<span class="material-symbols-outlined" data-icon="settings" style="font-variation-settings: 'FILL' 1;">settings</span>
+<span class="text-[10px] font-bold">Settings</span>
+</button>
+</nav>
+</body></html>

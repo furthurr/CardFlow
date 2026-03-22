@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>CardFlow - Proyectos Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface": "#faf9fe",
+              "surface-tint": "#9f4200",
+              "surface-dim": "#dad9de",
+              "on-error": "#ffffff",
+              "error-container": "#ffdad6",
+              "secondary-fixed": "#e2e2e2",
+              "surface-variant": "#e3e2e7",
+              "on-surface": "#1a1c1f",
+              "on-background": "#1a1c1f",
+              "secondary": "#5d5f5f",
+              "inverse-surface": "#2f3034",
+              "surface-container-highest": "#e3e2e7",
+              "on-primary-container": "#541f00",
+              "on-secondary": "#ffffff",
+              "tertiary-fixed-dim": "#8dcdff",
+              "tertiary-fixed": "#cae6ff",
+              "inverse-on-surface": "#f1f0f5",
+              "secondary-container": "#dfe0e0",
+              "tertiary": "#006493",
+              "on-tertiary-fixed-variant": "#004b70",
+              "on-primary-fixed": "#341100",
+              "on-tertiary": "#ffffff",
+              "tertiary-container": "#00a0e8",
+              "error": "#ba1a1a",
+              "on-tertiary-container": "#00334d",
+              "on-surface-variant": "#584237",
+              "background": "#faf9fe",
+              "primary-container": "#f27121",
+              "surface-container": "#eeedf2",
+              "surface-container-lowest": "#ffffff",
+              "primary-fixed": "#ffdbcb",
+              "secondary-fixed-dim": "#c6c6c7",
+              "primary": "#9f4200",
+              "on-error-container": "#93000a",
+              "outline-variant": "#dfc0b2",
+              "on-primary": "#ffffff",
+              "surface-container-high": "#e8e7ec",
+              "on-tertiary-fixed": "#001e30",
+              "surface-container-low": "#f4f3f8",
+              "primary-fixed-dim": "#ffb692",
+              "on-secondary-fixed-variant": "#454747",
+              "on-secondary-fixed": "#1a1c1c",
+              "on-primary-fixed-variant": "#793100",
+              "inverse-primary": "#ffb692",
+              "surface-bright": "#faf9fe",
+              "on-secondary-container": "#616363",
+              "outline": "#8c7265"
+            },
+            fontFamily: {
+              "headline": ["Inter"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .bg-sun-gradient {
+            background: linear-gradient(135deg, hsl(24, 100%, 72%) 0%, hsl(18, 98%, 53%) 100%);
+        }
+    </style>
+</head>
+<body class="bg-surface font-body text-on-surface antialiased min-h-screen">
+<!-- Top Navigation Bar -->
+<nav class="sticky top-0 z-50 flex justify-between items-center px-8 py-4 w-full bg-white/80 backdrop-blur-xl rounded-xl mt-4 mx-auto max-w-7xl shadow-[0_4px_20px_-2px_rgba(26,28,31,0.06)]">
+<div class="flex items-center gap-3">
+<div class="bg-primary-container p-2 rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-on-primary" style="font-variation-settings: 'FILL' 1;">texture</span>
+</div>
+<span class="text-xl font-extrabold tracking-tight text-on-background">Tactile Curator</span>
+</div>
+<div class="hidden md:flex items-center gap-8">
+<a class="text-[#9f4200] font-semibold border-b-2 border-[#9f4200] text-sm tracking-tight py-1" href="#">Platform</a>
+<a class="text-secondary hover:text-on-background transition-all duration-300 text-sm font-medium tracking-tight py-1" href="#">Solutions</a>
+<a class="text-secondary hover:text-on-background transition-all duration-300 text-sm font-medium tracking-tight py-1" href="#">Resources</a>
+<a class="text-secondary hover:text-on-background transition-all duration-300 text-sm font-medium tracking-tight py-1" href="#">Pricing</a>
+</div>
+<div class="flex items-center gap-4">
+<div class="flex items-center gap-3 pr-4 border-r border-outline-variant/20">
+<div class="text-right hidden sm:block">
+<p class="text-xs font-bold text-on-background">Admin User</p>
+<p class="text-[10px] text-secondary">admin@cardflow.io</p>
+</div>
+<div class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center text-primary font-bold overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="User profile avatar male business professional" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAFLfKFJvIgywDGVVPSw09Y8WpXSnm6SEfe0T-0m4arn2QtXVnFH6V21U1M7JFKy34gLAM-v1fY3T34xEhUPdlmxHnHXjsqtVjZnLEk5aadTTYaR6VWUWz_l0U2-ggOMXXF4CF9E26C4fNMYGGii280sSh_SmZumAkSsjj2D557XYyKMDqQMF4fmIdbK86okXAcFhG7CvE4GSQ2eOmXgGW4x2aOLNXd3p5d1E1QvDG-GVNjLzOW-JM1dseSTqwpDFG-sJNfbwrBoau3"/>
+</div>
+</div>
+<button class="flex items-center gap-2 px-4 py-2 rounded-xl text-secondary hover:bg-surface-container-high transition-all duration-300 text-sm font-medium">
+<span class="material-symbols-outlined text-lg">logout</span>
+<span class="hidden lg:inline">Log out</span>
+</button>
+</div>
+</nav>
+<main class="max-w-7xl mx-auto px-8 py-12">
+<!-- Dashboard Header -->
+<header class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
+<div class="max-w-2xl">
+<span class="text-primary font-bold tracking-[0.1em] text-[10px] uppercase mb-2 block">Management Dashboard</span>
+<h1 class="text-[3.5rem] font-bold leading-tight tracking-tighter text-on-background">Proyectos</h1>
+<p class="text-lg text-secondary mt-4 leading-relaxed">
+                    Gestiona tus flujos de trabajo, monitoriza el progreso en tiempo real y colabora con tu equipo en un entorno editorial premium.
+                </p>
+</div>
+<div class="flex items-center gap-4">
+<!-- Admin Only Action -->
+<button class="bg-sun-gradient text-on-primary px-6 py-3 rounded-xl font-semibold shadow-[0_4px_12px_rgba(242,113,33,0.2)] flex items-center gap-2 hover:scale-[1.02] active:scale-[0.98] transition-all duration-300">
+<span class="material-symbols-outlined">add</span>
+                    Crear proyecto
+                </button>
+<button class="bg-surface-container-lowest text-on-background border border-outline-variant/40 px-6 py-3 rounded-xl font-semibold hover:bg-surface-container-low transition-all duration-300 flex items-center gap-2">
+<span class="material-symbols-outlined">settings</span>
+                    Administrative links
+                </button>
+</div>
+</header>
+<!-- Bento-inspired Projects Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<!-- Project Card 1: Large Featured -->
+<div class="md:col-span-2 group relative overflow-hidden bg-surface-container-lowest rounded-xl shadow-[0_4px_20px_-2px_rgba(26,28,31,0.06)] flex flex-col md:flex-row transition-all duration-500 hover:shadow-[0_20px_40px_-10px_rgba(26,28,31,0.1)]">
+<div class="md:w-1/2 relative h-64 md:h-auto overflow-hidden">
+<img class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="Data analytics dashboard displayed on a modern screen" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD2NgSU0QKQQZ9ASYJd7ev_6B8jsctH0kQEfSg5msLjE6_-VO_8BakvZ3KTEPIcuNCHdB4iVm5igE-uF_0_Zx1zWxwyKaU8D3h7ZGZVoAR-zmak-Nx2zQekRSdpKvE9OX89-zCD9axkZFw_SqwczYlpf2fdyOsQdO4VEoEjhfsB8DV9n8b7qjYQolQZTJFt9XslXCtIQ0NEwRv-HSr5WXEydYJ1U4tz26v6P_36lUfl6Oy5I6OoEGyklkKX86G8AsS_pHbzybhI0b9G"/>
+<div class="absolute inset-0 bg-gradient-to-t from-on-background/60 to-transparent"></div>
+<div class="absolute bottom-6 left-6">
+<span class="bg-primary text-white text-[10px] font-bold px-2 py-1 rounded mb-2 inline-block">PRIORITY</span>
+<h3 class="text-white text-2xl font-bold">Rediseño Web Corporativa</h3>
+</div>
+</div>
+<div class="md:w-1/2 p-8 flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-4">
+<span class="text-xs font-bold text-primary tracking-widest uppercase">E-Commerce</span>
+<span class="text-[10px] text-secondary font-medium">Updated 2h ago</span>
+</div>
+<p class="text-on-surface/70 leading-relaxed mb-8">
+                            Migración completa del stack tecnológico para soportar transacciones internacionales con baja latencia y UX optimizada.
+                        </p>
+<div class="flex -space-x-2 mb-8">
+<img class="w-8 h-8 rounded-full border-2 border-white" data-alt="Female team member profile" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBr9G_qlVV9hDD99dQ8r3yMuovIlsnUdsQlmNkl2ujzWasjQPTquYGgZRNzNP3CZ9YVO-BkRYDGJpYqcNkgCTyjH4suYMVqdGxwZ8H6D-6k-HprncuiWVI_XkPbRvdVlR_q-i4vNFjnwvjKr_PwdUXg6BEmCnAre8BtPb4IILA9we_HuFDJNY1NndFurDSX8FaE2laLwC0g47Urlkeb-ucxVdm4pzGLf5BMNr9AX6F9OUAkZOZZTGrq_9Gp-gqKBt8koEWYdEECQhR-"/>
+<img class="w-8 h-8 rounded-full border-2 border-white" data-alt="Male team member profile" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAa35vLmBLVpRtd2PLYobMFNsMPteXsRJjxrHqXnXsJGCcMoZo0fsxgjHwpoA6pKPVaExPyo_Kp_sHVQLZymJUYX3xmsDO--enDlsXRCiQDn9EbMBaDnuzuKP_A6QyShihp_Qbvb32-gowrg259dfzMdUQ_Teiq-biyTV-syJ2rw4U_895OCKAXTZZsgPDkDe3ZRLuNvx01XIjtrDc4jOBDc_YbPwnfX1bBDv7e2LZR6ho6aAT4vU_IUwbj9Vpi9x-hkixcwKo3vt3B"/>
+<div class="w-8 h-8 rounded-full bg-surface-container-high border-2 border-white flex items-center justify-center text-[10px] font-bold text-secondary">+3</div>
+</div>
+</div>
+<button class="w-full bg-on-background text-white py-4 rounded-xl font-bold flex items-center justify-center gap-2 hover:bg-primary transition-colors duration-300">
+                        Entrar <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Project Card 2 -->
+<div class="bg-surface-container-lowest p-8 rounded-xl shadow-[0_4px_20px_-2px_rgba(26,28,31,0.06)] flex flex-col justify-between transition-all duration-300 hover:translate-y-[-4px]">
+<div>
+<div class="w-12 h-12 bg-surface-container-low rounded-lg flex items-center justify-center mb-6">
+<span class="material-symbols-outlined text-primary">campaign</span>
+</div>
+<h3 class="text-xl font-bold text-on-background mb-3">Campaña RRSS Q4</h3>
+<p class="text-secondary text-sm leading-relaxed mb-8">
+                        Planificación y curaduría de contenido visual para el lanzamiento de la colección de invierno.
+                    </p>
+</div>
+<div class="pt-6 border-t border-outline-variant/10 flex items-center justify-between">
+<span class="text-xs font-semibold text-on-surface/40">12 Miembros</span>
+<button class="text-primary font-bold text-sm flex items-center gap-1 hover:gap-2 transition-all">
+                        Entrar <span class="material-symbols-outlined text-base">chevron_right</span>
+</button>
+</div>
+</div>
+<!-- Project Card 3 -->
+<div class="bg-surface-container-lowest p-8 rounded-xl shadow-[0_4px_20px_-2px_rgba(26,28,31,0.06)] flex flex-col justify-between transition-all duration-300 hover:translate-y-[-4px]">
+<div>
+<div class="w-12 h-12 bg-surface-container-low rounded-lg flex items-center justify-center mb-6">
+<span class="material-symbols-outlined text-primary">description</span>
+</div>
+<h3 class="text-xl font-bold text-on-background mb-3">Auditoría de UX</h3>
+<p class="text-secondary text-sm leading-relaxed mb-8">
+                        Análisis heurístico y pruebas de usabilidad sobre el nuevo flujo de onboarding para clientes premium.
+                    </p>
+</div>
+<div class="pt-6 border-t border-outline-variant/10 flex items-center justify-between">
+<span class="text-xs font-semibold text-on-surface/40">4 Miembros</span>
+<button class="text-primary font-bold text-sm flex items-center gap-1 hover:gap-2 transition-all">
+                        Entrar <span class="material-symbols-outlined text-base">chevron_right</span>
+</button>
+</div>
+</div>
+<!-- Project Card 4 -->
+<div class="bg-surface-container-lowest p-8 rounded-xl shadow-[0_4px_20px_-2px_rgba(26,28,31,0.06)] flex flex-col justify-between transition-all duration-300 hover:translate-y-[-4px]">
+<div>
+<div class="w-12 h-12 bg-surface-container-low rounded-lg flex items-center justify-center mb-6">
+<span class="material-symbols-outlined text-primary">database</span>
+</div>
+<h3 class="text-xl font-bold text-on-background mb-3">Migración Legacy</h3>
+<p class="text-secondary text-sm leading-relaxed mb-8">
+                        Consolidación de bases de datos relacionales hacia un sistema distribuido de alta disponibilidad.
+                    </p>
+</div>
+<div class="pt-6 border-t border-outline-variant/10 flex items-center justify-between">
+<span class="text-xs font-semibold text-on-surface/40">8 Miembros</span>
+<button class="text-primary font-bold text-sm flex items-center gap-1 hover:gap-2 transition-all">
+                        Entrar <span class="material-symbols-outlined text-base">chevron_right</span>
+</button>
+</div>
+</div>
+<!-- Project Card 5: Empty State / Create New -->
+<div class="border-2 border-dashed border-outline-variant/30 rounded-xl flex flex-col items-center justify-center p-8 text-center bg-surface/50 hover:bg-surface-container-low hover:border-primary/30 transition-all duration-300 group cursor-pointer">
+<div class="w-16 h-16 rounded-full bg-white flex items-center justify-center mb-4 shadow-sm group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-primary text-3xl">add</span>
+</div>
+<h3 class="text-lg font-bold text-on-background">Nuevo Proyecto</h3>
+<p class="text-secondary text-xs mt-2">Inicia una nueva colaboración editorial ahora.</p>
+</div>
+</div>
+<!-- Pagination / Status Footer -->
+<footer class="mt-20 flex flex-col md:flex-row justify-between items-center gap-8 py-8 border-t border-outline-variant/10">
+<div class="flex items-center gap-6">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+<span class="text-xs font-bold text-secondary uppercase tracking-wider">System Status: Optimal</span>
+</div>
+<div class="h-4 w-[1px] bg-outline-variant/20"></div>
+<span class="text-xs text-secondary">© 2024 Tactile Curator Cloud Services</span>
+</div>
+<div class="flex items-center gap-4">
+<button class="w-10 h-10 rounded-lg flex items-center justify-center border border-outline-variant/20 hover:bg-surface-container-low transition-colors">
+<span class="material-symbols-outlined text-base">chevron_left</span>
+</button>
+<div class="flex items-center gap-2">
+<span class="w-8 h-8 rounded-lg flex items-center justify-center bg-primary text-white text-xs font-bold">1</span>
+<span class="w-8 h-8 rounded-lg flex items-center justify-center hover:bg-surface-container-low text-xs font-bold transition-colors">2</span>
+<span class="w-8 h-8 rounded-lg flex items-center justify-center hover:bg-surface-container-low text-xs font-bold transition-colors">3</span>
+</div>
+<button class="w-10 h-10 rounded-lg flex items-center justify-center border border-outline-variant/20 hover:bg-surface-container-low transition-colors">
+<span class="material-symbols-outlined text-base">chevron_right</span>
+</button>
+</div>
+</footer>
+</main>
+</body></html>

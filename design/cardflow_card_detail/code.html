@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>CardFlow — Detalle de Card</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-secondary": "#ffffff",
+              "secondary": "#5d5f5f",
+              "surface-variant": "#e3e2e7",
+              "outline-variant": "#dfc0b2",
+              "on-error": "#ffffff",
+              "on-primary-container": "#541f00",
+              "surface-container-highest": "#e3e2e7",
+              "secondary-container": "#dfe0e0",
+              "on-secondary-container": "#616363",
+              "on-tertiary": "#ffffff",
+              "on-primary-fixed": "#341100",
+              "error": "#ba1a1a",
+              "tertiary-fixed": "#cae6ff",
+              "secondary-fixed": "#e2e2e2",
+              "inverse-surface": "#2f3034",
+              "on-tertiary-fixed": "#001e30",
+              "on-primary": "#ffffff",
+              "on-primary-fixed-variant": "#793100",
+              "surface": "#faf9fe",
+              "surface-container-lowest": "#ffffff",
+              "on-secondary-fixed-variant": "#454747",
+              "surface-container": "#eeedf2",
+              "outline": "#8c7265",
+              "tertiary-container": "#00a0e8",
+              "tertiary": "#006493",
+              "surface-container-high": "#e8e7ec",
+              "tertiary-fixed-dim": "#8dcdff",
+              "inverse-on-surface": "#f1f0f5",
+              "primary": "#9f4200",
+              "surface-tint": "#9f4200",
+              "on-background": "#1a1c1f",
+              "inverse-primary": "#ffb692",
+              "surface-dim": "#dad9de",
+              "primary-fixed-dim": "#ffb692",
+              "primary-container": "#f27121",
+              "on-tertiary-fixed-variant": "#004b70",
+              "surface-container-low": "#f4f3f8",
+              "on-secondary-fixed": "#1a1c1c",
+              "primary-fixed": "#ffdbcb",
+              "error-container": "#ffdad6",
+              "surface-bright": "#faf9fe",
+              "on-tertiary-container": "#00334d",
+              "on-surface": "#1a1c1f",
+              "secondary-fixed-dim": "#c6c6c7",
+              "on-surface-variant": "#584237",
+              "on-error-container": "#93000a",
+              "background": "#faf9fe"
+            },
+            fontFamily: {
+              "headline": ["Inter"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .bg-sun-drenched {
+            background: linear-gradient(135deg, hsl(24, 100%, 72%), hsl(18, 98%, 53%));
+        }
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #dfc0b2; border-radius: 10px; }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body antialiased">
+<!-- Top Navigation Anchor -->
+<nav class="bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl rounded-xl sticky top-4 mx-auto w-[95%] max-w-7xl mt-4 shadow-[0_4px_20px_-2px_rgba(26,28,31,0.06)] dark:shadow-none flex items-center justify-between px-8 py-4 z-40">
+<div class="text-2xl font-black tracking-tighter text-[#f27121]">CardFlow</div>
+<div class="hidden md:flex items-center space-gap-8 gap-8">
+<a class="text-slate-600 dark:text-slate-400 font-medium hover:text-[#9f4200] transition-all duration-300" href="#">Platform</a>
+<a class="text-[#9f4200] dark:text-[#f27121] font-semibold border-b-2 border-[#f27121] pb-1" href="#">Solutions</a>
+<a class="text-slate-600 dark:text-slate-400 font-medium hover:text-[#9f4200] transition-all duration-300" href="#">Resources</a>
+<a class="text-slate-600 dark:text-slate-400 font-medium hover:text-[#9f4200] transition-all duration-300" href="#">Pricing</a>
+</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-secondary cursor-pointer hover:bg-slate-50/50 p-2 rounded-full transition-all" data-icon="account_circle">account_circle</span>
+<span class="material-symbols-outlined text-secondary cursor-pointer hover:bg-slate-50/50 p-2 rounded-full transition-all" data-icon="logout">logout</span>
+</div>
+</nav>
+<!-- Main Content: Project Board Background -->
+<main class="max-w-7xl mx-auto px-8 mt-12 mb-24 relative">
+<header class="mb-12">
+<h1 class="text-5xl font-bold tracking-tight text-on-background mb-4">Marketing Campaign Q4</h1>
+<p class="text-secondary max-w-2xl text-body-lg">Organize and curate your visual content pipeline with high-fidelity card management.</p>
+</header>
+<!-- Mock Project Board (Background Context) -->
+<div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-8 opacity-40 select-none pointer-events-none">
+<!-- Column 1 -->
+<div class="space-y-6">
+<div class="flex items-center justify-between mb-2">
+<span class="text-label-md uppercase tracking-widest font-semibold text-primary">To Do</span>
+<span class="bg-surface-container px-2 py-0.5 rounded text-xs">4</span>
+</div>
+<div class="bg-surface-container-low p-6 rounded-xl space-y-4">
+<div class="h-4 w-3/4 bg-surface-container-highest rounded"></div>
+<div class="h-20 bg-surface-container-highest rounded-lg"></div>
+</div>
+<div class="bg-surface-container-low p-6 rounded-xl space-y-4">
+<div class="h-4 w-1/2 bg-surface-container-highest rounded"></div>
+<div class="h-12 bg-surface-container-highest rounded-lg"></div>
+</div>
+</div>
+<!-- Column 2 -->
+<div class="space-y-6">
+<div class="flex items-center justify-between mb-2">
+<span class="text-label-md uppercase tracking-widest font-semibold text-secondary">In Progress</span>
+<span class="bg-surface-container px-2 py-0.5 rounded text-xs">2</span>
+</div>
+<div class="bg-surface-container-low p-6 rounded-xl border-2 border-primary-container/20">
+<div class="h-4 w-full bg-primary-container/20 rounded mb-4"></div>
+<div class="h-32 bg-primary-container/10 rounded-lg"></div>
+</div>
+</div>
+<!-- Column 3 -->
+<div class="space-y-6">
+<div class="flex items-center justify-between mb-2">
+<span class="text-label-md uppercase tracking-widest font-semibold text-secondary">Review</span>
+<span class="bg-surface-container px-2 py-0.5 rounded text-xs">1</span>
+</div>
+<div class="bg-surface-container-low p-6 rounded-xl space-y-4">
+<div class="h-4 w-2/3 bg-surface-container-highest rounded"></div>
+<div class="h-24 bg-surface-container-highest rounded-lg"></div>
+</div>
+</div>
+<!-- Column 4 -->
+<div class="space-y-6">
+<div class="flex items-center justify-between mb-2">
+<span class="text-label-md uppercase tracking-widest font-semibold text-secondary">Done</span>
+<span class="bg-surface-container px-2 py-0.5 rounded text-xs">12</span>
+</div>
+<div class="bg-surface-container-low p-6 rounded-xl space-y-4">
+<div class="h-4 w-full bg-surface-container-highest rounded"></div>
+<div class="h-16 bg-surface-container-highest rounded-lg"></div>
+</div>
+</div>
+</div>
+</main>
+<!-- Side Panel Overlay (Detalle de Card) -->
+<div class="fixed inset-0 z-50 flex justify-end bg-on-background/20 backdrop-blur-sm">
+<!-- Panel Container -->
+<div class="w-full max-w-2xl bg-surface h-full shadow-2xl flex flex-col overflow-hidden animate-in slide-in-from-right duration-300">
+<!-- Panel Header -->
+<div class="p-8 border-b border-surface-container-high flex items-center justify-between">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary" data-icon="id_card">id_card</span>
+<span class="text-label-md uppercase tracking-widest font-bold text-secondary">Card Detail — CRD-1024</span>
+</div>
+<button class="p-2 hover:bg-surface-container-low rounded-full transition-colors">
+<span class="material-symbols-outlined text-on-surface" data-icon="close">close</span>
+</button>
+</div>
+<!-- Panel Content (Scrollable) -->
+<div class="flex-1 overflow-y-auto p-8 space-y-10">
+<!-- Editable Section: Title & Description -->
+<section class="space-y-6">
+<div class="space-y-2">
+<label class="text-label-md uppercase tracking-widest text-secondary font-semibold">Card Title</label>
+<input class="w-full text-3xl font-bold bg-transparent border-none focus:ring-0 p-0 text-on-background placeholder-surface-variant hover:bg-surface-container-low transition-colors rounded-lg px-2 -mx-2" type="text" value="Finalizing Editorial Layout for September"/>
+</div>
+<div class="space-y-2">
+<label class="text-label-md uppercase tracking-widest text-secondary font-semibold">Description</label>
+<textarea class="w-full bg-surface-container-low border-none rounded-xl p-4 text-body-lg text-on-surface-variant focus:ring-2 focus:ring-primary-container/20 transition-all resize-none" placeholder="Add a more detailed description..." rows="4">This card covers the final selection of tactile textures and the curation of the high-end editorial spread for the upcoming September issue. Ensure all gradients match the Sun-Drenched palette specifications.</textarea>
+</div>
+</section>
+<!-- Editable Section: Metadata Dropdowns -->
+<section class="grid grid-cols-2 gap-6 p-6 bg-surface-container-low rounded-2xl">
+<div class="space-y-2">
+<label class="text-label-md uppercase tracking-widest text-secondary font-semibold flex items-center gap-2">
+<span class="material-symbols-outlined text-sm" data-icon="error">error</span> Status
+                        </label>
+<div class="relative group">
+<select class="w-full appearance-none bg-surface-container-lowest border-none rounded-xl px-4 py-3 text-body-lg font-medium text-on-surface focus:ring-2 focus:ring-primary-container/20 cursor-pointer">
+<option>To Do</option>
+<option selected="">In Progress</option>
+<option>Review</option>
+<option>Done</option>
+</select>
+<span class="material-symbols-outlined absolute right-3 top-3 pointer-events-none text-secondary" data-icon="expand_more">expand_more</span>
+</div>
+</div>
+<div class="space-y-2">
+<label class="text-label-md uppercase tracking-widest text-secondary font-semibold flex items-center gap-2">
+<span class="material-symbols-outlined text-sm" data-icon="person">person</span> Responsible
+                        </label>
+<div class="relative group">
+<select class="w-full appearance-none bg-surface-container-lowest border-none rounded-xl px-4 py-3 text-body-lg font-medium text-on-surface focus:ring-2 focus:ring-primary-container/20 cursor-pointer">
+<option selected="">Alex Rivera</option>
+<option>Jordan Smith</option>
+<option>Maria Garcia</option>
+<option>Unassigned</option>
+</select>
+<span class="material-symbols-outlined absolute right-3 top-3 pointer-events-none text-secondary" data-icon="expand_more">expand_more</span>
+</div>
+</div>
+</section>
+<!-- Activity & Comments Section -->
+<section class="space-y-6">
+<div class="flex items-center justify-between">
+<h3 class="text-title-lg font-bold text-on-background flex items-center gap-2">
+<span class="material-symbols-outlined text-primary" data-icon="forum">forum</span> Activity
+                        </h3>
+<a class="text-label-md uppercase tracking-widest text-primary font-bold hover:underline decoration-2 underline-offset-4 transition-all" href="#">View History</a>
+</div>
+<!-- Comment Box -->
+<div class="flex gap-4 group">
+<div class="w-10 h-10 rounded-full bg-sun-drenched flex items-center justify-center text-white font-bold text-sm shrink-0">AR</div>
+<div class="flex-1 space-y-3">
+<div class="relative">
+<textarea class="w-full bg-surface-container-lowest border border-outline-variant/20 rounded-xl p-4 text-body-lg text-on-surface focus:ring-2 focus:ring-primary-container/20 shadow-sm" placeholder="Write a comment..." rows="2"></textarea>
+</div>
+<button class="bg-sun-drenched text-white font-bold px-6 py-2.5 rounded-xl shadow-[0_4px_12px_rgba(242,113,33,0.2)] active:scale-95 transition-all text-label-md uppercase tracking-wider">Add Comment</button>
+</div>
+</div>
+<!-- Comments List -->
+<div class="space-y-6 mt-8">
+<!-- Comment 1 -->
+<div class="flex gap-4 p-4 rounded-xl hover:bg-surface-container-low transition-colors group">
+<img alt="User" class="w-10 h-10 rounded-full object-cover" data-alt="Portrait of Jordan Smith professional profile" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAlhSp0JK76_3h6S4D6fWZps6xZhTL5ahF9azg1VeEYRqMJNDuxn3K98lQhyP-3fJPFNaYgzHrwjs3PF9gdI89GvSE_Q4XGAd4mlF-Js7RdEFQuGUTT61a1MXC281JSpi08zn7Y8AGoTl3XspC8XcmdBb2Vh0zSiOgQaCe9qXrgpdSvHWAUw_CBBK_z9YAqmKeAy20C1TBXnsby08Lep1SjhMePx7i1qm1x8bEgs2F-bt24U_APzUQNXMpH1GNdejcafkBY0OKoG_6R"/>
+<div class="flex-1">
+<div class="flex items-center justify-between mb-1">
+<span class="font-bold text-on-background">Jordan Smith</span>
+<span class="text-xs text-secondary">2 hours ago</span>
+</div>
+<p class="text-on-surface-variant text-body-lg">The tactile texture samples have been uploaded to the shared drive. Let me know if we need higher resolution renders.</p>
+<div class="mt-3 flex items-center gap-4 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="flex items-center gap-1 text-label-md uppercase text-secondary hover:text-error transition-colors">
+<span class="material-symbols-outlined text-sm" data-icon="archive">archive</span> Archive
+                                    </button>
+<button class="flex items-center gap-1 text-label-md uppercase text-secondary hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-sm" data-icon="reply">reply</span> Reply
+                                    </button>
+</div>
+</div>
+</div>
+<!-- Comment 2 -->
+<div class="flex gap-4 p-4 rounded-xl hover:bg-surface-container-low transition-colors group">
+<div class="w-10 h-10 rounded-full bg-secondary-container flex items-center justify-center text-on-secondary-container font-bold text-sm shrink-0">MG</div>
+<div class="flex-1">
+<div class="flex items-center justify-between mb-1">
+<span class="font-bold text-on-background">Maria Garcia</span>
+<span class="text-xs text-secondary">Yesterday</span>
+</div>
+<p class="text-on-surface-variant text-body-lg">Looks great! I'll start the final layout assembly once the editorial copy is approved.</p>
+<div class="mt-3 flex items-center gap-4 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="flex items-center gap-1 text-label-md uppercase text-secondary hover:text-error transition-colors">
+<span class="material-symbols-outlined text-sm" data-icon="archive">archive</span> Archive
+                                    </button>
+<button class="flex items-center gap-1 text-label-md uppercase text-secondary hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-sm" data-icon="reply">reply</span> Reply
+                                    </button>
+</div>
+</div>
+</div>
+</div>
+</section>
+</div>
+<!-- Panel Footer Action Bar -->
+<div class="p-8 bg-surface-container-lowest border-t border-surface-container-high flex items-center justify-between">
+<button class="flex items-center gap-2 text-label-md uppercase tracking-widest text-error font-bold hover:bg-error-container/10 px-4 py-2 rounded-xl transition-all">
+<span class="material-symbols-outlined" data-icon="delete">delete</span> Delete Card
+                </button>
+<div class="flex gap-4">
+<button class="px-6 py-3 rounded-xl text-label-md uppercase tracking-widest font-bold text-secondary hover:bg-surface-container-low transition-all">Cancel</button>
+<button class="bg-primary text-white px-8 py-3 rounded-xl text-label-md uppercase tracking-widest font-bold shadow-lg shadow-primary/20 active:scale-95 transition-all">Save Changes</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Editorial Footer Anchor -->
+<footer class="bg-[#faf9fe] dark:bg-slate-950 w-full border-t border-slate-100 dark:border-slate-800 relative z-30">
+<div class="max-w-7xl mx-auto px-8 py-12 flex flex-col md:flex-row justify-between items-center gap-6">
+<div class="font-bold text-[#1a1c1f] dark:text-slate-100">CardFlow</div>
+<div class="flex flex-wrap justify-center gap-8">
+<a class="font-['Inter'] text-label-md uppercase tracking-widest text-slate-500 hover:text-[#9f4200] transition-colors" href="#">Privacy Policy</a>
+<a class="font-['Inter'] text-label-md uppercase tracking-widest text-slate-500 hover:text-[#9f4200] transition-colors" href="#">Terms of Service</a>
+<a class="font-['Inter'] text-label-md uppercase tracking-widest text-slate-500 hover:text-[#9f4200] transition-colors" href="#">Contact Support</a>
+</div>
+<div class="font-['Inter'] text-label-md uppercase tracking-widest text-slate-500">© 2024 CardFlow. The Tactile Curator Experience.</div>
+</div>
+</footer>
+</body></html>

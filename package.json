@@ -1,0 +1,24 @@
+{
+  "name": "cardflow",
+  "version": "1.0.0",
+  "description": "CardFlow MVP monolitico con Express, SQLite y frontend vanilla",
+  "main": "backend/app.js",
+  "scripts": {
+    "dev": "nodemon backend/app.js",
+    "start": "node backend/app.js",
+    "db:seed": "node backend/app.js --seed-only"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "bcrypt": "^6.0.0",
+    "better-sqlite3": "^12.8.0",
+    "express": "^5.2.1",
+    "express-session": "^1.19.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14"
+  }
+}

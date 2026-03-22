@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>CardFlow — Tablero del Proyecto</title>
+<!-- Google Fonts: Inter -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-secondary": "#ffffff",
+              "secondary": "#5d5f5f",
+              "surface-variant": "#e3e2e7",
+              "outline-variant": "#dfc0b2",
+              "on-error": "#ffffff",
+              "on-primary-container": "#541f00",
+              "surface-container-highest": "#e3e2e7",
+              "secondary-container": "#dfe0e0",
+              "on-secondary-container": "#616363",
+              "on-tertiary": "#ffffff",
+              "on-primary-fixed": "#341100",
+              "error": "#ba1a1a",
+              "tertiary-fixed": "#cae6ff",
+              "secondary-fixed": "#e2e2e2",
+              "inverse-surface": "#2f3034",
+              "on-tertiary-fixed": "#001e30",
+              "on-primary": "#ffffff",
+              "on-primary-fixed-variant": "#793100",
+              "surface": "#faf9fe",
+              "surface-container-lowest": "#ffffff",
+              "on-secondary-fixed-variant": "#454747",
+              "surface-container": "#eeedf2",
+              "outline": "#8c7265",
+              "tertiary-container": "#00a0e8",
+              "tertiary": "#006493",
+              "surface-container-high": "#e8e7ec",
+              "tertiary-fixed-dim": "#8dcdff",
+              "inverse-on-surface": "#f1f0f5",
+              "primary": "#9f4200",
+              "surface-tint": "#9f4200",
+              "on-background": "#1a1c1f",
+              "inverse-primary": "#ffb692",
+              "surface-dim": "#dad9de",
+              "primary-fixed-dim": "#ffb692",
+              "primary-container": "#f27121",
+              "on-tertiary-fixed-variant": "#004b70",
+              "surface-container-low": "#f4f3f8",
+              "on-secondary-fixed": "#1a1c1c",
+              "primary-fixed": "#ffdbcb",
+              "error-container": "#ffdad6",
+              "surface-bright": "#faf9fe",
+              "on-tertiary-container": "#00334d",
+              "on-surface": "#1a1c1f",
+              "secondary-fixed-dim": "#c6c6c7",
+              "on-surface-variant": "#584237",
+              "on-error-container": "#93000a",
+              "background": "#faf9fe"
+            },
+            fontFamily: {
+              "headline": ["Inter"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .kanban-column {
+            min-width: 320px;
+            max-width: 320px;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            height: 8px;
+            width: 8px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #dfc0b2;
+            border-radius: 10px;
+        }
+        .primary-gradient {
+            background: linear-gradient(135deg, hsl(24, 100%, 72%) 0%, hsl(18, 98%, 53%) 100%);
+        }
+    </style>
+</head>
+<body class="bg-surface font-body text-on-surface min-h-screen flex flex-col">
+<!-- TopNavBar Shell -->
+<nav class="bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl rounded-xl sticky top-4 mx-auto w-[95%] max-w-7xl mt-4 shadow-[0_4px_20px_-2px_rgba(26,28,31,0.06)] dark:shadow-none flex items-center justify-between px-8 py-4 z-50">
+<div class="flex items-center gap-8">
+<span class="text-2xl font-black tracking-tighter text-[#f27121]">CardFlow</span>
+<div class="hidden md:flex gap-6">
+<a class="text-slate-600 dark:text-slate-400 font-medium hover:text-[#9f4200] transition-all duration-300" href="#">Platform</a>
+<a class="text-[#9f4200] dark:text-[#f27121] font-semibold border-b-2 border-[#f27121] pb-1 transition-all duration-300" href="#">Solutions</a>
+<a class="text-slate-600 dark:text-slate-400 font-medium hover:text-[#9f4200] transition-all duration-300" href="#">Resources</a>
+<a class="text-slate-600 dark:text-slate-400 font-medium hover:text-[#9f4200] transition-all duration-300" href="#">Pricing</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 rounded-xl hover:bg-slate-50/50 dark:hover:bg-slate-800/50 transition-all active:scale-95">
+<span class="material-symbols-outlined text-on-surface-variant">account_circle</span>
+</button>
+<button class="p-2 rounded-xl hover:bg-slate-50/50 dark:hover:bg-slate-800/50 transition-all active:scale-95">
+<span class="material-symbols-outlined text-on-surface-variant">logout</span>
+</button>
+</div>
+</nav>
+<main class="flex-grow flex flex-col overflow-hidden px-4 md:px-8 pt-8">
+<!-- Header Section -->
+<header class="max-w-7xl mx-auto w-full mb-8 flex flex-col md:flex-row md:items-end justify-between gap-6">
+<div class="space-y-2">
+<div class="flex items-center gap-2 text-primary font-semibold text-label-md uppercase tracking-widest">
+<span class="material-symbols-outlined text-sm">view_kanban</span>
+                    Tablero del Proyecto
+                </div>
+<h1 class="text-4xl md:text-5xl font-bold tracking-tight text-on-surface">Rediseño de E-commerce</h1>
+<p class="text-secondary max-w-xl text-body-lg">Gestiona el flujo de trabajo editorial y técnico con una visión táctil y organizada de tus tareas críticas.</p>
+</div>
+<div class="flex flex-wrap gap-3">
+<button class="px-6 py-3 bg-white border border-outline-variant/40 rounded-xl text-on-surface font-semibold flex items-center gap-2 shadow-sm hover:bg-surface-container-low transition-all active:scale-95">
+<span class="material-symbols-outlined">arrow_back</span>
+                    Volver al Dashboard
+                </button>
+<button class="px-6 py-3 primary-gradient text-white rounded-xl font-bold flex items-center gap-2 shadow-[0_4px_12px_rgba(242,113,33,0.2)] hover:opacity-90 transition-all active:scale-95">
+<span class="material-symbols-outlined">add</span>
+                    Crear Card
+                </button>
+</div>
+</header>
+<!-- Kanban Board Container -->
+<div class="flex-grow overflow-x-auto custom-scrollbar pb-8">
+<div class="flex gap-6 h-full min-h-[600px] px-2">
+<!-- Column: Datos Importantes -->
+<section class="kanban-column flex flex-col gap-4">
+<div class="flex items-center justify-between px-2">
+<h3 class="text-label-md font-bold text-on-surface uppercase tracking-wider flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+                            Datos Importantes
+                        </h3>
+<span class="text-label-md font-bold text-secondary bg-surface-container-high px-2 py-0.5 rounded-full">2</span>
+</div>
+<div class="space-y-4">
+<!-- Kanban Card -->
+<div class="bg-surface-container-lowest p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow group cursor-grab active:cursor-grabbing border-l-4 border-primary">
+<span class="text-label-md font-bold text-primary mb-2 block">ID-001</span>
+<h4 class="text-title-lg font-bold text-on-surface mb-2 leading-tight">Guía de Estilo Visual</h4>
+<p class="text-secondary text-sm mb-4 line-clamp-2">Definición de tokens de color, tipografía y espaciado para la nueva interfaz.</p>
+<div class="flex items-center justify-between pt-4 border-t border-surface-container">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-full bg-primary-fixed flex items-center justify-center text-primary font-bold text-xs overflow-hidden">
+<img alt="User" data-alt="Avatar of Felix professional designer" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCGryj5Ao_Zo3tTsEacUMvZl_V8Evbxkejl-L1CbMDuT40Fl6UexXCqQsacSmgIocmOl3YK4HK5p8rlRqiKcatYwcyWhau23nq0xz2kKi3Cf1f0dOh-GUE7SSPyxA1uURFCJndR9R19S4fRvLDS7wByonP_QL34Y-EHrCwJJdTF16tIv1Oa2XAF3Lvrnkxzev3TMnAIikSzEfpP2lVCR-UsEOg4k3OxqedIj5UtkEhFR7sZINwNmyHajh1sipTYS-OYwJ8QYiweZSLw"/>
+</div>
+<span class="text-xs font-semibold text-on-surface-variant">Felix M.</span>
+</div>
+<span class="bg-primary-fixed text-primary text-[10px] font-bold uppercase tracking-tighter px-2 py-0.5 rounded">Prioritario</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Column: Por Definir -->
+<section class="kanban-column flex flex-col gap-4">
+<div class="flex items-center justify-between px-2">
+<h3 class="text-label-md font-bold text-on-surface uppercase tracking-wider flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-slate-400"></span>
+                            Por Definir
+                        </h3>
+<span class="text-label-md font-bold text-secondary bg-surface-container-high px-2 py-0.5 rounded-full">1</span>
+</div>
+<div class="space-y-4">
+<div class="bg-surface-container-lowest p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow border-l-4 border-slate-300">
+<span class="text-label-md font-bold text-secondary mb-2 block">ID-042</span>
+<h4 class="text-title-lg font-bold text-on-surface mb-2 leading-tight">Integración de Pagos</h4>
+<p class="text-secondary text-sm mb-4 line-clamp-2">Evaluar proveedores locales para la pasarela de pagos en LATAM.</p>
+<div class="flex items-center justify-between pt-4 border-t border-surface-container">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-full bg-secondary-container flex items-center justify-center text-secondary font-bold text-xs">SM</div>
+</div>
+<span class="bg-surface-container-high text-secondary text-[10px] font-bold uppercase tracking-tighter px-2 py-0.5 rounded">Pendiente</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Column: Por Hacer -->
+<section class="kanban-column flex flex-col gap-4">
+<div class="flex items-center justify-between px-2">
+<h3 class="text-label-md font-bold text-on-surface uppercase tracking-wider flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-tertiary"></span>
+                            Por Hacer
+                        </h3>
+<span class="text-label-md font-bold text-secondary bg-surface-container-high px-2 py-0.5 rounded-full">3</span>
+</div>
+<div class="space-y-4">
+<div class="bg-surface-container-lowest p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow">
+<span class="text-label-md font-bold text-tertiary mb-2 block">ID-105</span>
+<h4 class="text-title-lg font-bold text-on-surface mb-2 leading-tight">Responsive Mockups</h4>
+<p class="text-secondary text-sm mb-4 line-clamp-2">Adaptación de los diseños de escritorio a dispositivos móviles y tablets.</p>
+<div class="flex items-center justify-between pt-4 border-t border-surface-container">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-full overflow-hidden">
+<img alt="User" data-alt="Avatar of Sarah UI designer" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDIUZUqwcwdTnML0yJummPI2uNXGojf47WxUNGSfUvmcX8ENtKNS2BGCZYleawICWgaH1beA47Tvv_D48VNKmIjVoo7nLUzbl9l15yqvMBgkX4fs7cx1q2AQHKvDKCnxUvPRgSUc1VKV7kQUObVhPpJE94JC541k2pFTdd69ZIRlcHj0a6NxSiw1Mom36x6xTvf2B0WY5uAW4jAfuMgcqpsiFw8PoY1k7E3aPebIaO1HCU4kuAEwU8OJKejTRD8sUrwwXR7qx1a8k-b"/>
+</div>
+<span class="text-xs font-semibold text-on-surface-variant">Sarah J.</span>
+</div>
+<span class="bg-tertiary-fixed text-tertiary text-[10px] font-bold uppercase tracking-tighter px-2 py-0.5 rounded">Diseño</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow">
+<span class="text-label-md font-bold text-tertiary mb-2 block">ID-108</span>
+<h4 class="text-title-lg font-bold text-on-surface mb-2 leading-tight">Copy de Producto</h4>
+<p class="text-secondary text-sm mb-4 line-clamp-2">Redacción de microcopy para las fichas de producto premium.</p>
+<div class="flex items-center justify-between pt-4 border-t border-surface-container">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-full overflow-hidden">
+<img alt="User" data-alt="Avatar of Marc content strategist" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAwXwDp3vxrdIrkVZ5NlvRLOvB1I1Db5fOqjy6ieNapIRO1BqmaPKK_Ju1AXX0Zt0L-t4WXM0Iotq1nRh8m0xZPOltbxTTGHXPTsbFBBMwRfbd3TLjD8QAANmrIfhlpO67uiNFW0_IK4utYf21W58iEEOrYBTU1V4_ediyYf8o8NAVFJH4VJxBOWm7ZuyMDKFjpIB84jHovX7zrqC6N02YlN0x_6rFAhU8RsMC-IqT1Xq4P4Li6Y6yNRkOYSlbDVuBGhz8bVnjmfBgq"/>
+</div>
+<span class="text-xs font-semibold text-on-surface-variant">Marc O.</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Column: Haciendo -->
+<section class="kanban-column flex flex-col gap-4">
+<div class="flex items-center justify-between px-2">
+<h3 class="text-label-md font-bold text-on-surface uppercase tracking-wider flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-primary-container"></span>
+                            Haciendo
+                        </h3>
+<span class="text-label-md font-bold text-secondary bg-surface-container-high px-2 py-0.5 rounded-full">1</span>
+</div>
+<div class="space-y-4">
+<div class="bg-surface-container-low p-6 rounded-xl shadow-sm ring-1 ring-primary/20">
+<span class="text-label-md font-bold text-primary mb-2 block">ID-088</span>
+<h4 class="text-title-lg font-bold text-on-surface mb-2 leading-tight">Dashboard Admin</h4>
+<p class="text-secondary text-sm mb-4 line-clamp-2">Construcción de los componentes del panel administrativo en React.</p>
+<div class="flex items-center justify-between pt-4 border-t border-surface-container-highest">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-full overflow-hidden">
+<img alt="User" data-alt="Avatar of developer at work" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAveLLG50gcdjqUPHcy1TIb6k3IQVAjJm4iqpmQ3yNDQ3xejaM5-dvPsxhHxGjVS0ssF2L6JRx_wbpXyhg9T7TkY4ptg__XT7XXPxIOey4iGjL0nMwQZHy9iFO3LAfCgpTrE9YpaXXt5ZzETEkxlZ44go_hfN8AuZ5x0QIVRv45CH-2_x5Hetl9FqQai0CXmYVqpkw98Q2NeLYrZ-QVS--2d2nl7Cu01ptx079dVsMoYqj4qcvT3MPLThAQR0AfSOmzVtpB23cCCp6f"/>
+</div>
+<span class="text-xs font-semibold text-on-surface-variant">Alex R.</span>
+</div>
+<span class="bg-primary-container text-white text-[10px] font-bold uppercase tracking-tighter px-2 py-0.5 rounded">En Proceso</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Column: En Revisión -->
+<section class="kanban-column flex flex-col gap-4">
+<div class="flex items-center justify-between px-2">
+<h3 class="text-label-md font-bold text-on-surface uppercase tracking-wider flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-amber-500"></span>
+                            En Revisión
+                        </h3>
+<span class="text-label-md font-bold text-secondary bg-surface-container-high px-2 py-0.5 rounded-full">2</span>
+</div>
+<div class="space-y-4">
+<div class="bg-surface-container-lowest p-6 rounded-xl shadow-sm border-dashed border-2 border-amber-200">
+<span class="text-label-md font-bold text-amber-600 mb-2 block">ID-092</span>
+<h4 class="text-title-lg font-bold text-on-surface mb-2 leading-tight">Pruebas de QA</h4>
+<div class="flex items-center justify-between pt-4">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-full bg-amber-100 flex items-center justify-center">
+<span class="material-symbols-outlined text-amber-600 text-sm">security</span>
+</div>
+<span class="text-xs font-semibold text-on-surface-variant">Team QA</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Column: Finalizados -->
+<section class="kanban-column flex flex-col gap-4 opacity-75">
+<div class="flex items-center justify-between px-2">
+<h3 class="text-label-md font-bold text-on-surface uppercase tracking-wider flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+                            Finalizados
+                        </h3>
+<span class="text-label-md font-bold text-secondary bg-surface-container-high px-2 py-0.5 rounded-full">12</span>
+</div>
+<div class="space-y-4">
+<div class="bg-surface-container-lowest p-6 rounded-xl shadow-sm opacity-60">
+<h4 class="text-title-lg font-bold text-on-surface mb-2 leading-tight line-through">User Research</h4>
+<div class="flex items-center justify-between pt-4">
+<span class="material-symbols-outlined text-emerald-500">check_circle</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Column: Archivados -->
+<section class="kanban-column flex flex-col gap-4 opacity-50">
+<div class="flex items-center justify-between px-2">
+<h3 class="text-label-md font-bold text-on-surface uppercase tracking-wider flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-slate-600"></span>
+                            Archivados
+                        </h3>
+<span class="text-label-md font-bold text-secondary bg-surface-container-high px-2 py-0.5 rounded-full">0</span>
+</div>
+<div class="h-32 border-2 border-dashed border-outline-variant/20 rounded-xl flex items-center justify-center text-secondary text-sm">
+                        Sin elementos
+                    </div>
+</section>
+</div>
+</div>
+</main>
+<!-- Footer Shell -->
+<footer class="bg-[#faf9fe] dark:bg-slate-950 w-full border-t border-slate-100 dark:border-slate-800 mt-auto">
+<div class="max-w-7xl mx-auto px-8 py-12 flex flex-col md:flex-row justify-between items-center gap-6">
+<div class="flex flex-col items-center md:items-start gap-2">
+<span class="font-bold text-[#1a1c1f] dark:text-slate-100 text-xl">CardFlow</span>
+<p class="font-['Inter'] text-[10px] uppercase tracking-widest text-slate-500">© 2024 CardFlow. The Tactile Curator Experience.</p>
+</div>
+<div class="flex gap-8">
+<a class="font-['Inter'] text-[10px] uppercase tracking-widest text-slate-500 hover:text-[#9f4200] transition-colors" href="#">Privacy Policy</a>
+<a class="font-['Inter'] text-[10px] uppercase tracking-widest text-slate-500 hover:text-[#9f4200] transition-colors" href="#">Terms of Service</a>
+<a class="font-['Inter'] text-[10px] uppercase tracking-widest text-slate-500 hover:text-[#9f4200] transition-colors" href="#">Contact Support</a>
+</div>
+</div>
+</footer>
+</body></html>
