@@ -115,3 +115,14 @@ Este proyecto esta en fase de **MVP inicial**. Eso significa:
 El objetivo de CardFlow es servir como una base solida para crecer por fases. Primero se valida el producto minimo funcional; despues se podran incorporar mejoras de experiencia, seguridad, permisos mas finos y capacidades avanzadas.
 
 Si revisas este proyecto, hazlo entendiendo su contexto correcto: **CardFlow hoy es un MVP, intencionalmente limitado, pero ya util y extensible.**
+
+## Autor
+
+<a href="https://furthurr.github.io/" target="_blank" rel="noopener noreferrer">Pedro G. V. @furthurr</a>
+
+- **GitHub:** https://github.com/furthurr
+- **Email:** pedrogvas@gmail.com
+
+## Licencia
+
+MIT
